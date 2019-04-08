@@ -1,7 +1,7 @@
 <table style="width:100%">
   <tr>
-    <td  align="center" width="100%" colspan="6"><img src="https://www.xilinx.com/content/dam/xilinx/imgs/press/media-kits/corporate/xilinx-logo.png" width="30%"/><h1>2018.3 SDAccel™ Development Environment Tutorials</h1>
-    <a href="https://github.com/Xilinx/SDAccel-Tutorials/branches/all">See other versions</a>
+    <td  align="center" width="100%" colspan="6"><img src="https://www.xilinx.com/content/dam/xilinx/imgs/press/media-kits/corporate/xilinx-logo.png" width="30%"/><h1>2018.3 SDAccel™开发环境教程</h1>
+    <a href="https://github.com/Xilinx/SDAccel-Tutorials/branches/all">查看其他版本</a>
 </td>
   </tr>
   <tr>
@@ -15,9 +15,9 @@
 
 # Lab 1: Introduction to the SDAccel Development Environment
 
-This lab demonstrates two different flows: steps 1-3 explain the GUI flow, and step 4 explains the Makefile flow.
+本实验演示了两种不同的流程：步骤1-3解释GUI流程，步骤4解释Makefile流程。
 
-This lab uses an example from the Xilinx&reg; SDAccel&trade; Example GitHub repository, which can be found [here](https://github.com/Xilinx/SDAccel_Examples).
+本实验使用Xilinx®SDAccel™示例GitHub存储库中的示例，该存储库可在此处找到。 [here](https://github.com/Xilinx/SDAccel_Examples).
 
 ## Step 1: Create an SDAccel Project From a GitHub Example
 
