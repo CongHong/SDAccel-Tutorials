@@ -20,11 +20,11 @@
 
 本教程将引导您完成使用SDx™GUI构建基于OpenCL™的基本设计的步骤，并学习一些使您能够进行性能分析和优化的功能。 
 
-## Tutorial Design Description  
+## 教程设计说明  
 
-This tutorial is based on the Xilinx SDAccel™ GitHub Examples<!--check on how the Github is being described officially-->, specifically the Vector Addition example. More information related to the GitHub examples can be found in the _SDAccel Profiling and Optimization Guide_ ([UG1207](https://www.xilinx.com/cgi-bin/docs/rdoc?v=2018.3;d=ug1207-sdaccel-optimization-guide.pdf)).
+本教程基于Xilinx SDAccel™GitHub示例，特别是Vector Addition示例。有关GitHub示例的更多信息，请参阅 _SDAccel Profiling and Optimization Guide_ ([UG1207](https://www.xilinx.com/cgi-bin/docs/rdoc?v=2018.3;d=ug1207-sdaccel-optimization-guide.pdf)).
 
-## Related information
+## 相关信息
 
  * [Lab 1: Introduction to the SDAccel Development Environment](/lab-1-introduction-to-the-sdaccel-gui.md)
  * [Lab 2: Introduction to the SDAccel Makefile](/lab-2-introduction-to-the-sdaccel-makefile.md)
