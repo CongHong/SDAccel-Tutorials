@@ -10,26 +10,26 @@
  </tr>
 </table>
 
-# Introduction
+# 介绍
 
-This tutorial demonstrates how to use the SDAccel environment to program an RTL kernel into an FPGA and build a Hardware Emulation using a common development flow:
+本教程演示了如何使用SDAccel环境将RTL内核编程到FPGA中并使用通用开发流程构建硬件仿真:
 
-1. Package an RTL block as Vivado™ Design Suite IP.
-2. Create a kernel description XML file.
-3. Package the RTL kernel into a Xilinx Object (`.xo`) file.
-4. Use SDAccel to program the RTL kernel onto the FPGA and run in Hardware or Hardware-Emulation.
+1.将RTL块打包为Vivado™Design Suite IP。
+2.创建内核描述XML文件。
+3.将RTL内核打包到Xilinx对象（`.xo`）文件中。
+4.使用SDAccel将RTL内核编程到FPGA上，并在硬件或硬件仿真中运行。
 
-# Tutorial Overview
+# 教程概述
 
-RTL designs that fit certain software and hardware interface requirements can be packaged into a Xilinx Object (`.xo`) file. This file can be linked into a binary container to create an `xclbin` file that the host code application uses to program the kernel into the FPGA.
+符合某些软件和硬件接口要求的RTL设计可以打包到Xilinx对象（`.xo`）文件中。该文件可以链接到二进制容器中，以创建一个`xclbin`文件，主机代码应用程序使用该文件将内核编程到FPGA中。
 
-This tutorial provides the following reference files:
-- A simple Vector accumulate example that performs a `B[i] = A[i]+B[i]` operation.
-- A host application that creates read/write buffers on the double data rate (DDR) memory to transfer the data between the host and the FPGA.
-  - The host will enqueue the RTL kernel (executed on the FPGA), which reads the buffer of the DDR, performs `B[i] = A[i]+B[i]`, and then writes the result back to the DDR.
-  - The host will read back the data to compare the results.
+本教程提供以下参考文件：
+ - 一个简单的向量累加示例，执行`B [i] = A [i] + B [i]`运算。
+ - 主机应用程序，在双倍数据速率（DDR）内存上创建读/写缓冲区，以在主机和FPGA之间传输数据。
+ - 主机将入队RTL内核（在FPGA上执行），读取DDR的缓冲区，执行`B [i] = A [i] + B [i]`，然后将结果写回DDR。
+ - 主机将回读数据以比较结果。
 
-Using these reference files, the tutorial will guide you from the first step of creating an SDx™ project to the final step of building and running your project.
+使用这些参考文件，本教程将指导您从创建SDx™项目的第一步到构建和运行项目的最后一步。
 
 # Requirements for Using an RTL Design as an RTL Kernel
 
