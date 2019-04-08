@@ -194,13 +194,13 @@ RTL内核向导将指导您完成指定RTL内核的接口特性的过程。使�
 4. 单击 **Next**.  
 将显示摘要页面。  
 
-## Example Summary Page
+## 示例摘要页面
 
 ![Missing Image: summary.PNG](./images/summary.PNG)
 
-- **Target platform**: Specifies what platform the RTL kernel will be compiled for. The RTL kernel must be recompiled to support different platforms.
-- **Function prototype**: Conveys what a kernel call would be like if it was a C function.
-- **Register map**: Displays the relationship between the host software ID, argument name, hardware register offset, datatype, and associated AXI interface.
+- **Target platform**: 指定将为其编译RTL内核的平台。必须重新编译RTL内核以支持不同的平台。
+- **Function prototype**: 如果它是C函数，则传达内核调用的内容。
+- **Register map**: 显示主机软件ID，参数名称，硬件寄存器偏移量，数据类型和关联的AXI接口之间的关系。
 
 1. Before generating the kernel, review the summary page for correctness.
 
