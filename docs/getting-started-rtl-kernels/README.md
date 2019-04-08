@@ -60,9 +60,9 @@ void vadd_A_B(int *a, int *b, int scalar)
 
 为了符合此执行模型，SDAccel要求内核满足特定的硬件接口要求：
 
-- One and only one AXI4-Lite slave interface used to access programmable registers (control registers, scalar arguments and pointer base addresses).
-  - Offset `0x00` - Control Register - Controls and provides kernel status
-    - Bit `0`: **start signal** — Asserted by the host application when kernel can start processing data. Must be cleared when the **done** signal is asserted.
+- 用于访问可编程寄存器的唯一一个AXI4-Lite从接口（控制寄存器，标量参数和指针基址）.
+  - 偏移量 `0x00` - 控制寄存器 - 控制并提供内核状态
+    - 位 `0`: **开始信号** — 当内核可以开始处理数据时，主机应用程序断言。当完成信号被置位时必须清除。
     - Bit `1`: **done signal** — Asserted by the kernel when it has completed operation. Cleared on read.
     - Bit `2`: **idle signal** — The kernel asserts this signal when it is not processing any data. The transition from Low to High should occur synchronously with the assertion of the **done** signal    
   - Offset `0x04`- Global Interrupt Enable Register - Used to enable interrupt to the host   
