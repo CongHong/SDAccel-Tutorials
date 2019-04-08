@@ -33,22 +33,22 @@
 
    欢迎窗口打开。
 
-   >**注意**: 首次使用该工具时，或者通过选择 **Help > Welcome**，将打开“欢迎”窗口。
+   >**注意**: 首次使用该工具时，或者通过选择 **Help > Welcome**，将打开“Welcome”窗口。
 
-4. In the Welcome window, click **Create Application Project**.
+4. 在“Welcome”窗口, 单击 **Create Application Project**.
 
    ![SDxIDEWelcome.png](images/SDxIDEWelcome.png)
 
-   The New SDx Application Project dialog box opens.
+   将打开“New SDx Application Project”对话框。
 
-5. Create the project.
-   1. In Project Name, enter `helloworld`.
-   2. Select **Use default location**.
-   3. Click **Next**.  
+5. 创建项目。
+   1. 在项目名称中，输入 `helloworld`。
+   2. 选择 **Use default location**.
+   3. 单击 **Next**.  
 
    ![error: missing image](./images/183_application_project.png)
 
-   The Platform page opens.
+   “Platform”页面打开。
 
 6. Select `xilinx_u200_xdma_201830_1`, and then click **Next**.
 
