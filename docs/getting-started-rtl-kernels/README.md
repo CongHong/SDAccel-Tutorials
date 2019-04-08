@@ -62,16 +62,16 @@ void vadd_A_B(int *a, int *b, int scalar)
 
 - 用于访问可编程寄存器的唯一一个AXI4-Lite从接口（控制寄存器，标量参数和指针基址）.
   - 偏移量 `0x00` - 控制寄存器 - 控制并提供内核状态
-    - 位 `0`: **开始信号** — 当内核可以开始处理数据时，主机应用程序断言。当**完成信号**被置位时必须清除。
-    - Bit `1`: **done signal** — Asserted by the kernel when it has completed operation. Cleared on read.
-    - Bit `2`: **idle signal** — The kernel asserts this signal when it is not processing any data. The transition from Low to High should occur synchronously with the assertion of the **done** signal    
-  - Offset `0x04`- Global Interrupt Enable Register - Used to enable interrupt to the host   
-  - Offset `0x08`- IP Interrupt Enable Register - Used to control which IP generated signal are used to generate an interrupt
-  - Offset `0x0C`- IP Interrupt Status Register - Provides interrupt status
-  - Offset `0x10` and above - Kernel Argument Register(s) - Register for scalar parameters and base addresses for pointers
+    - 位 `0`: **开始信号** — 当内核可以开始处理数据时，主机应用程序有效。当**完成信号**被置位时必须清除。
+    - 位 `1`: **完成信号** — 内核在完成操作时断言。阅读时清除。
+    - 位 `2`: **空闲信号** — 内核在不处理任何数据时有效此信号。从低到高的转换应与**完成信号**的断言同步发生    
+  - 偏移量 `0x04`- 全局中断使能寄存器 - 用于对主机的中断   
+  - 偏移量 `0x08`- IP中断使能寄存器 - 用于控制使用哪个IP生成的信号生成中断
+  - 偏移量 `0x0C`- IP中断状态寄存器 - 提供中断状态
+  - 偏移量 `0x10` 以上 - 内核参数寄存器 - 寄存器指针的标量参数和基址
 
-- One or more of the following interfaces:
-  - AXI4 master memory mapped interface to communicate with global memory.
+- 一个或多个以下接口:
+  - AXI4主存储器映射接口与全局存储器通信。
     - All AXI4 master interfaces must have 64-bit addresses.
     - The kernel developer is responsible for partitioning global memory spaces. Each partition in the global memory becomes a kernel argument. The base address (memory offset) for each partition must be set by a control register programmable via the AXI4-Lite slave interface.
     - AXI4 masters must not use Wrap or Fixed burst types, and they must not use narrow (sub-size) bursts. This means that AxSIZE should match the width of the AXI data bus.
