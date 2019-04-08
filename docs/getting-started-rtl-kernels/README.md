@@ -1,7 +1,7 @@
 <table>
  <tr>
-   <td align="center"><img src="https://www.xilinx.com/content/dam/xilinx/imgs/press/media-kits/corporate/xilinx-logo.png" width="30%"/><h1>2018.3 SDAccel™ Development Environment Tutorials</h1>
-   <a href="https://github.com/Xilinx/SDAccel-Tutorials/branches/all">See other versions</a>
+   <td align="center"><img src="https://www.xilinx.com/content/dam/xilinx/imgs/press/media-kits/corporate/xilinx-logo.png" width="30%"/><h1>2018.3 SDAccel™开发环境教程</h1>
+   <a href="https://github.com/Xilinx/SDAccel-Tutorials/branches/all">查看其他版本</a>
    </td>
  </tr>
  <tr>
@@ -31,34 +31,34 @@
 
 使用这些参考文件，本教程将指导您从创建SDx™项目的第一步到构建和运行项目的最后一步。
 
-# Requirements for Using an RTL Design as an RTL Kernel
+# 将RTL设计用作RTL内核的要求
 
-To use an RTL kernel within the SDAccel environment framework, it must meet both the SDAccel kernel execution model and the hardware interface requirements.
+要在SDAccel环境框架内使用RTL内核，它必须满足SDAccel内核执行模型和硬件接口要求。
 
-## Kernel Execution Model
+## 内核执行模型
 
-RTL kernels use the same software interface and execution model as C/C++ kernels. They are seen by the host application as functions with a void return value, scalar arguments, and pointer arguments. For instance:
+RTL内核使用与C / C ++内核相同的软件接口和执行模型。它们被宿主应用程序视为具有void返回值，标量参数和指针参数的函数。例如：
 
 ```C
 void vadd_A_B(int *a, int *b, int scalar)
 ```
 
-This implies that an RTL kernel has an execution model like that of a software function:
-- It must start when called.
-- It is responsible for processing the necessary results.
-- It must send a notification when processing is complete.
+这意味着RTL内核具有类似软件功能的执行模型：
+ - 它必须在被叫时开始。
+ - 它负责处理必要的结果。
+ - 处理完成后必须发送通知。
 
-More specifically, the SDAccel execution model relies on the following mechanics and assumptions:
-- Scalar arguments are passed to the kernel through an AXI4-Lite slave interface.
-- Pointer arguments are transferred through global memory (DDR or PLRAM).
-- Base addresses of pointer arguments are passed to the kernel through its AXI4-Lite slave interface.
-- Kernels access pointer arguments in global memory through one or more AXI4 memory mapped interfaces.
-- Kernels are started by the host application through its AXI4-Lite interface
-- Kernels must notify the host application when they completed the operation through its AXI4-Lite interface or a special interrupt signal
+更具体地说，SDAccel执行模型依赖于以下机制和假设：
+ - 标量参数通过AXI4-Lite从接口传递给内核。
+ - 指针参数通过全局内存（DDR或PLRAM）传输。
+ - 指针参数的基址通过其AXI4-Lite从接口传递给内核。
+ - 内核通过一个或多个AXI4内存映射接口访问全局内存中的指针参数。
+ - 内核由主机应用程序通过其AXI4-Lite接口启动
+ - 内核必须在通过AXI4-Lite接口或特殊中断信号完成操作时通知主机应用程序
 
-## Hardware Interface Requirements
+## 硬件接口要求
 
-To comply with this execution model, SDAccel requires that a kernel satisfy specific hardware interface requirements:
+为了符合此执行模型，SDAccel要求内核满足特定的硬件接口要求：
 
 - One and only one AXI4-Lite slave interface used to access programmable registers (control registers, scalar arguments and pointer base addresses).
   - Offset `0x00` - Control Register - Controls and provides kernel status
