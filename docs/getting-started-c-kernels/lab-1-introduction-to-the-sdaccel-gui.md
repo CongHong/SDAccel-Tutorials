@@ -35,7 +35,7 @@
 
    >**注意**: 首次使用该工具时，或者通过选择 **Help > Welcome**，将打开“Welcome”窗口。
 
-4. 在“Welcome”窗口, 单击 **Create Application Project**.
+4. 在“Welcome”窗口, 单击 **Create Application Project**。
 
    ![SDxIDEWelcome.png](images/SDxIDEWelcome.png)
 
@@ -43,50 +43,50 @@
 
 5. 创建项目。
    1. 在项目名称中，输入 `helloworld`。
-   2. 选择 **Use default location**.
-   3. 单击 **Next**.  
+   2. 选择 **Use default location**。
+   3. 单击 **Next**。  
 
    ![error: missing image](./images/183_application_project.png)
 
    “Platform”页面打开。
 
-6. Select `xilinx_u200_xdma_201830_1`, and then click **Next**.
+6. 选择 `xilinx_u200_xdma_201830_1`, 然后单击 **Next**。
 
    ![error: missing image](./images/183_hardware_platform_dialog.png)
 
-   The Templates page opens, showing templates you can use to start building an SDAccel environment project. Unless you have downloaded other SDx examples, you should only see _Empty Application_ and _Vector Addition_ as available templates.
+   将打开“Templates”页面，其中显示可用于开始构建SDAccel环境项目的模板。除非您已下载其他SDx示例，否则只应将_Empty Application_和_Vector Addition_视为可用模板。
 
-   >**NOTE**: The type of hardware platform you select determines the project as an SDAccel or SDSoC™ environment project.
+   >**注意**: 您选择的硬件平台类型将项目确定为SDAccel或SDSoC™环境项目。
 
-7. In this lab, you will use the Helloworld example from the GitHub repository. To download the examples, click **SDx Examples**.
+7. 在本实验中，您将使用GitHub存储库中的Helloworld示例。要下载示例，请单击 **SDx Examples**。
 
    ![error: missing image](./images/183_example_empty.png)
 
-8. Select **SDAccel Examples**, and then click **Download**.
+8. 选择 **SDAccel Examples**, 然后单击 **Download**。
 
    ![error: missing image](./images/183_example_download.png)
 
-   The system clones the GitHub repository to the designated location. When the download completes, the SDAccel Examples tree table is populated and expanded.
+   系统将GitHub存储库克隆到指定位置。下载完成后，将填充并扩展SDAccel示例树表。
 
-   >**NOTE**: The download can take a long time, depending on your connectivity speed. The Progress Information dialog box is displayed until the repository cloning is completed.
+   >**注意**: 下载可能需要很长时间，具体取决于您的连接速度。将显示“Progress Information”对话框，直到完成存储库克隆。
 
-9. Click **OK**. This closes the window and brings you back to the Templates window.
+9. 单击 **OK**。 这将关闭窗口并返回“Templates”窗口。
 
    ![error: missing image](./images/183_example_full.png)
 
-   The Templates window is now populated with the SDAccel GitHub examples.  
+   在“Templates”模板窗口中填充了SDAccel GitHub示例。 
 
-10. In **Find**, enter `hello`, and then locate the Hello World (HLS C/C++ Kernel) from the Host Examples.
+10. 在 **“Find”**中, 输入 `hello`, 然后从Host Examples中找到Hello World（HLS C / C ++ Kernel）。
 
-11. Click **Finish**.
+11. 单击 **Finish**。
 
     ![error: missing image](./images/183_github_example_new.png)
 
-   The _helloworld_ project is created and displayed in the SDAccel environment, which looks like the following figure.
+   _helloworld_项目在SDAccel环境中创建并显示，如下图所示。
 
    ![error: missing image](./images/183_helloworld_project.png)
 
-For more information on the features of the SDx IDE, refer to the _SDAccel Environment User Guide_ ([UG1023](https://www.xilinx.com/cgi-bin/docs/rdoc?v=2018.3;d=ug1023-sdaccel-user-guide.pdf)).
+有关SDx IDE功能的更多信息，请参阅 _SDAccel Environment User Guide_ ([UG1023](https://www.xilinx.com/cgi-bin/docs/rdoc?v=2018.3;d=ug1023-sdaccel-user-guide.pdf)).
 
 ## Step 2: Run Software Emulation
 
