@@ -15,8 +15,11 @@
 本教程演示了如何使用SDAccel环境将RTL内核编程到FPGA中并使用通用开发流程构建硬件仿真:
 
   1.将RTL块打包为Vivado™Design Suite IP。
+  
   2.创建内核描述XML文件。
+  
   3.将RTL内核打包到Xilinx对象（`.xo`）文件中。
+  
   4.使用SDAccel将RTL内核编程到FPGA上，并在硬件或硬件仿真中运行。
 
 # 教程概述
