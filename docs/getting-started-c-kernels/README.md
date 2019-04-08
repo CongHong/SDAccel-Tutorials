@@ -1,8 +1,8 @@
 <table style="width:100%">
   <tr>
 
-<td align="center" width="100%" colspan="6"><img src="https://www.xilinx.com/content/dam/xilinx/imgs/press/media-kits/corporate/xilinx-logo.png" width="30%"/><h1>2018.3 SDAccel™ Development Environment Tutorials</h1>
-<a href="https://github.com/Xilinx/SDAccel-Tutorials/branches/all">See other versions</a>
+<td align="center" width="100%" colspan="6"><img src="https://www.xilinx.com/content/dam/xilinx/imgs/press/media-kits/corporate/xilinx-logo.png" width="30%"/><h1>2018.3 SDAccel™开发环境教程</h1>
+<a href="https://github.com/Xilinx/SDAccel-Tutorials/branches/all">查看其他版本</a>
 </td>
 
   </tr>
@@ -16,9 +16,9 @@
    </tr>
 </table>
 
-# Introduction  
+# 介绍  
 
-This tutorial walks you through the steps of building<!--shows the steps?--> a basic OpenCL™-based design using the SDx™<!--need an approved noun. either development environment or tool--> GUI and learning some of the features that enable you to do performance profiling and optimization.  
+本教程将引导您完成使用SDx™GUI构建基于OpenCL™的基本设计的步骤，并学习一些使您能够进行性能分析和优化的功能。 
 
 ## Tutorial Design Description  
 
