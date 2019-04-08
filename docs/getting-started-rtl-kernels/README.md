@@ -392,45 +392,45 @@ clEnqueueTask(command_queue, kernel, 0, NULL, NULL);
 clEnqueueReadBuffer(command_queue, dev_mem_ptr, CL_TRUE, 0, sizeof(int)*number_of_words,host_mem_output_ptr, 0, NULL, &readevent );
 ```
 
-主机应用程序的结构和要求将在 _SDAccel Environment User Guide_ ([UG1023](https://www.xilinx.com/html_docs/xilinx2018_3/sdaccel_doc/pjq1528392379194.html#awb1528664475358)) 和  _SDAccel Environment Programmers Guide_ ([UG1277](https://www.xilinx.com/html_docs/xilinx2018_3/sdaccel_doc/vpy1519742402284.html#vpy1519742402284))中详细讨论.
+主机应用程序的结构和要求将在 _SDAccel Environment User Guide_ ([UG1023](https://www.xilinx.com/html_docs/xilinx2018_3/sdaccel_doc/pjq1528392379194.html#awb1528664475358)) 和  _SDAccel Environment Programmers Guide_ ([UG1277](https://www.xilinx.com/html_docs/xilinx2018_3/sdaccel_doc/vpy1519742402284.html#vpy1519742402284))中详细讨论。
 
-## Build the Project
+## 建立项目
 
-For detailed information on building the project, see [Getting Started with C/C++ Kernels](../getting-started-c-kernels/README.md).
+有关构建项目的详细信息，请参阅 [Getting Started with C/C++ Kernels](../getting-started-c-kernels/README.md)。
 
-With the host application code (`vadd.cpp`) and the RTL kernel code (`Vadd_A_B.xo`) added to the project, you are now ready to build and run the project.
+通过将主机应用程序代码 (`vadd.cpp`) 和RTL内核代码 (`Vadd_A_B.xo`) 添加到项目中，您现在可以构建并运行该项目了。
 
-1. To create a binary container, select the RTL kernel as the hardware function.  
-    >**NOTE**: For Software Emulation, the RTL kernel flow requires a C/C++ software model of the kernel. In this tutorial, you have not been provided such a model, so you will not be able to run a Software Emulation build.
+1. 要创建二进制容器，请选择RTL内核作为硬件功能。
+    >**注意**: 对于软件仿真，RTL内核流程需要内核的C / C ++软件模型。在本教程中，您尚未提供此类模型，因此您将无法运行Software Emulation构建。
 
-2. In SDx Application Project Settings, change **Active build configuration** to **Emulation-HW**.  
-The Hardware Emulation target is useful for:
-   - Verifying the functionality of the logic that will go into the FPGA.
-   - Retrieving the initial performance estimates of the accelerator and host application.
+2. 在SDx应用程序项目设置中，将 **Active build configuration** 更改为 **Emulation-HW**。  
+硬件仿真目标对以下内容非常有用：
+    - 验证将进入FPGA的逻辑功能。
+    - 检索加速器和主机应用程序的初始性能估计。
 
-3. Build and run the Hardware Emulation configuration, and then verify the results.
+3. 构建并运行硬件仿真配置，然后验证结果。
 
-### Optional: Build and Run the System on a Hardware Platform
+### 可选：在硬件平台上构建和运行系统
 
-1. In the SDx Application Project Settings, change **Active build configuration** to **System**.  
-In the system configuration, the kernel code is implemented onto the FPGA device, resulting in a binary that will run on the selected platform card.  
+1. 在SDx应用程序项目设置中，将 **Active build configuration** 更改为 **System**。  
+在系统配置中，内核代码在FPGA器件上实现，从而产生将在所选平台卡上运行的二进制代码。 
 
-2. If you have an available hardware platform, build and run the system, and then verify the results.
+2. 如果您有可用的硬件平台，请构建并运行系统，然后验证结果。
 
-# Summary
+# 总结
 
-1. You used the RTL Kernel Wizard from the SDx GUI to specify the name and interfaces of a new RTL kernel (based on an existing RTL IP).
-   - The RTL Kernel Wizard created an XML template according to your specifications, automatically generated the RTL files for a template IP (`Vadd A+1`), and then launched the Vivado Design Suite.
+1.您使用SDx GUI中的RTL内核向导来指定新RTL内核的名称和接口（基于现有的RTL IP）。
+    -  RTL内核向导根据您的规范创建了一个XML模板，自动生成模板IP (`Vadd A+1`)的RTL文件，然后启动Vivado Design Suite。
 
-2. In the Vivado Design Suite, you removed the template RTL files and added in your own RTL IP files.
+2. 在Vivado Design Suite中，您删除了模板RTL文件并添加到您自己的RTL IP文件中。
 
-3. You simulated the IP using a test bench to incorporate the AXI Verification IP (AXI VIP).  
-    >**NOTE**: You must create this test bench when using your own RTL IP.
+3. 您使用测试平台模拟IP以合并AXI验证IP（AXI VIP）。  
+    >**注意**: 使用自己的RTL IP时，必须创建此测试平台。
 
-4. You packaged the RTL IP project into the compiled `.xo` file needed by the SDAccel development environment.
+4. 您将RTL IP项目打包到SDAccel开发环境所需的已编译的 `.xo` 文件中。
 
-5. You added the RTL kernel to a host application and built the Hardware Emulation configuration.  
-   - In the SDAccel development environment, a binary container was created using the `.xo` file, and an `xclbin` file was compiled.
+5. 您将RTL内核添加到主机应用程序并构建了硬件仿真配置。  
+   - 在SDAccel开发环境中，使用 `.xo` 文件创建了一个二进制容器，并编译了一个 `xclbin` 文件。
 
 <hr/>
 <p align="center"><sup>Copyright&copy; 2019 Xilinx</sup></p>
