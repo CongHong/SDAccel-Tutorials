@@ -206,11 +206,11 @@ RTL内核向导将指导您完成指定RTL内核的接口特性的过程。使�
 
 RTL内核向导使用通过各个步骤获取的数据，并在摘要页面中进行汇总以生成：
  - 内核描述XML文件。
-  - `kernel.xml` 指定您在向导中定义的运行时和SDAccel环境流所需的属性，例如寄存器映射。
+   - `kernel.xml` 指定您在向导中定义的运行时和SDAccel环境流所需的属性，例如寄存器映射。
  - 一个名为VADD的示例内核实现A [i] = A [i] +1，包括：
-  -  RTL代码
-  - 验证测试台
-  - 主机代码
+   -  RTL代码
+   - 验证测试台
+   - 主机代码
  - 一个VADD示例内核的Vivado项目。
 
 2. To launch Vivado Design Suite to package the RTL IP and create the kernel, click **OK**.
