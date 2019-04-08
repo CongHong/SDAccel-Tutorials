@@ -26,7 +26,7 @@ Read this page in other languages:<a href="/docs-jp/README.md">日本語</a>
    <tr>
    <td align="center"><a href="docs/getting-started-c-kernels/README.md">Getting Started with C/C++ Kernels</a></td>
    <td align="center">C</td>
-   <td>本教程演示了如何使用SDx™开发环境GUI构建基于OpenCL™的基本设计，并学习一些使您能够进行性能分析和优化的功能。</td>
+   <td>本教程演示了如何使用SDx™开发环境,用GUI构建基于OpenCL™的基本设计，并学习一些性能分析和优化的功能。</td>
    </tr>
    </table>
 
