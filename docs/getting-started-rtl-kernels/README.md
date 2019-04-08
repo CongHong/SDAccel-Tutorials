@@ -202,16 +202,16 @@ RTL内核向导将指导您完成指定RTL内核的接口特性的过程。使�
 - **Function prototype**: 如果它是C函数，则传达内核调用的内容。
 - **Register map**: 显示主机软件ID，参数名称，硬件寄存器偏移量，数据类型和关联的AXI接口之间的关系。
 
-1. Before generating the kernel, review the summary page for correctness.
+1. 在生成内核之前，请查看摘要页面以获取正确性。
 
-The RTL Kernel Wizard uses the specification captured through the various steps and summarized in the Summary Page to generate:
-- A kernel description XML file.
-  - `kernel.xml` specifies the attributes you defined in the wizard that are needed by the runtime and SDAccel environment flows, such as the register map.
-- A sample kernel called VADD implementing A[i]=A[i]+1, including:
-  - RTL code
-  - Verification test bench
-  - Host code
-- A Vivado project for the VADD sample kernel.
+RTL内核向导使用通过各个步骤获取的数据，并在摘要页面中进行汇总以生成：
+ - 内核描述XML文件。
+  - `kernel.xml` 指定您在向导中定义的运行时和SDAccel环境流所需的属性，例如寄存器映射。
+ - 一个名为VADD的示例内核实现A [i] = A [i] +1，包括：
+  -  RTL代码
+  - 验证测试台
+  - 主机代码
+ - 一个VADD示例内核的Vivado项目。
 
 2. To launch Vivado Design Suite to package the RTL IP and create the kernel, click **OK**.
 
