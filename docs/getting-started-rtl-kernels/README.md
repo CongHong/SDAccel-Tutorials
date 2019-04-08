@@ -72,21 +72,20 @@ void vadd_A_B(int *a, int *b, int scalar)
 
 - 一个或多个以下接口:
   - AXI4主存储器映射接口与全局存储器通信。
-    - All AXI4 master interfaces must have 64-bit addresses.
-    - The kernel developer is responsible for partitioning global memory spaces. Each partition in the global memory becomes a kernel argument. The base address (memory offset) for each partition must be set by a control register programmable via the AXI4-Lite slave interface.
-    - AXI4 masters must not use Wrap or Fixed burst types, and they must not use narrow (sub-size) bursts. This means that AxSIZE should match the width of the AXI data bus.
-    - Any user logic or RTL code that does not conform to the requirements above must be wrapped or bridged.
-  - AXI4-Stream interface to communicate with other kernels.
+    - 所有AXI4主接口必须具有64位地址。
+    - 内核开发人员负责分区全局内存空间。全局内存中的每个分区都成为内核参数。每个分区的基址（存储器偏移量）必须由可通过AXI4-Lite从接口编程的控制寄存器设置。
+    - AXI4主机不能使用Wrap或Fixed突发类型，并且它们不能使用窄（子大小）突发。这意味着AxSIZE应匹配AXI数据总线的宽度。
+    - 必须包装或桥接任何不符合上述要求的用户逻辑或RTL代码。
+  - AXI4-Stream接口与其他内核通信。
+如果原始RTL设计具有不同的执行模型或硬件接口，则必须添加逻辑以确保设计以预期方式运行并符合接口要求。
 
-If the original RTL design has a different execution model or hardware interface, you must add logic to ensure that the design behaves in the expected manner and complies with interface requirements.
+### 附加信息
 
-### Additional Information
-
-For more information on the interface requirements for an SDAccel environment kernel, see the [Requirements for Using an RTL Design as an RTL Kernel](https://www.xilinx.com/html_docs/xilinx2018_3/sdaccel_doc/creating-rtl-kernels-qnk1504034323350.html#qbh1504034323531) section of the _SDAccel Environment User Guide_ ([UG1023](https://www.xilinx.com/cgi-bin/docs/rdoc?v=2018.3;d=ug1023-sdaccel-user-guide.pdf)).
+有关SDAccel环境内核的接口要求的更多信息，请参阅 [Requirements for Using an RTL Design as an RTL Kernel](https://www.xilinx.com/html_docs/xilinx2018_3/sdaccel_doc/creating-rtl-kernels-qnk1504034323350.html#qbh1504034323531) section of the _SDAccel Environment User Guide_ ([UG1023](https://www.xilinx.com/cgi-bin/docs/rdoc?v=2018.3;d=ug1023-sdaccel-user-guide.pdf)).
 
 ## Vector-Accumulate RTL IP
 
-For this tutorial, the Vector-Accumulate RTL IP performing `B[i]=A[i]+B[i]` meets all the requirements described above and has the following characteristics:
+对于本教程，执行 `B[i]=A[i]+B[i]` 的Vector-Accumulate RTL IP满足上述所有要求，并具有以下特征：
 
 - Two AXI4 memory mapped interfaces:
   - One interface is used to read A
