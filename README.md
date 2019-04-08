@@ -21,7 +21,7 @@ Read this page in other languages:<a href="/docs-jp/README.md">日本語</a>
  <tr>
  <td align="center"><a href="docs/getting-started-rtl-kernels/README.md">Getting Started with RTL Kernels</a></td>
  <td align="center">RTL</td>
- <td>This tutorial demonstrates how to use the SDAccel environment to program an RTL kernel into an FPGA and build a Hardware Emulation using a common development flow.</td>
+ <td>本教程演示了如何使用SDAccel环境将RTL内核编程到FPGA中，并使用通用开发流程构建硬件仿真。</td>
  </tr>
    <tr>
    <td align="center"><a href="docs/getting-started-c-kernels/README.md">Getting Started with C/C++ Kernels</a></td>
