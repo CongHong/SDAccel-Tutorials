@@ -147,7 +147,7 @@ void vadd_A_B(int *a, int *b, int scalar)
 
 RTL内核向导将指导您完成指定RTL内核的接口特性的过程。使用RTL内核向导可确保将RTL IP打包到可由SDAccel集成到系统中的有效内核中。使用该向导还有一个额外的好处，即可以自动执行将RTL IP打包到内核中的一些必要任务。
 
-## 常规设置
+## General Settings
 
 - **Kernel Identification**: 指定供应商，内核名称和库，称为IP的“供应商：库：名称：版本”（VLNV）。内核名称应与您用于RTL内核的IP的顶层模块名称匹配。
 - **Kernel Options**: 指定设计类型。
@@ -162,36 +162,37 @@ RTL内核向导将指导您完成指定RTL内核的接口特性的过程。使�
 
 ## Scalars
 
-Scalar arguments are used to pass input parameters from the host application to the kernel. For the number of input arguments specified, a corresponding register is created to facilitate passing the argument from software to hardware. Each argument is assigned an ID value that is used to access that argument from the host application. This ID value can be found on the summary page of the wizard.
-- **Argument name**: Name of the argument.  
-- **Argument type**: Type of the scalar argument expressed as a native C/C++ datatype. For example: (u)char, (u)short or (u)int.
+标量参数用于将输入参数从主机应用程序传递到内核。对于指定的输入参数的数量，创建相应的寄存器以便于将参数从软件传递到硬件。为每个参数分配一个ID值，用于从主机应用程序访问该参数。可以在向导的摘要页面上找到此ID值。
+- **Argument name**: 参数的名称。  
+- **Argument type**: 标量参数的类型，表示为本机C / C ++数据类型。例如：（u）char，（u）short或（u）int。
 
-1. Keep the default values, and then click **Next**.  
+1. 保留默认值，然后单击 **Next**.  
 ![scalar.PNG](./images/scalar.PNG)
 
 ## Global Memory
 
-Global Memory is used to pass large data sets between the host and kernels, and between kernels to other kernels. This memory can be accessed by the kernel through an AXI4 memory mapped master interface. For each AXI4 master interface, you can customize the interface name, data width, and the number of associated arguments.
-- **Number of AXI master interfaces**: Specifies the number of AXI interfaces in the kernel
-- **AXI master definition**: Specifies the interface name, the data width (in bytes) and the number of arguments associated with each AXI4 interface.
-- **Argument definition**: Specifies the pointer arguments assigned to each AXI4 interface. Each argument is assigned an ID value, that can be used to access the argument from the host application. This ID value assignment can be found on the summary page of the wizard.  
+全局内存用于在主机和内核之间以及内核与其他内核之间传递大型数据集。内核可以通过AXI4内存映射主接口访问该内存。对于每个AXI4主接口，您可以自定义接口名称，数据宽度和相关参数的数量。
+- **Number of AXI master interfaces**: 指定内核中AXI接口的数量
+- **AXI master definition**: 指定接口名称，数据宽度（以字节为单位）以及与每个AXI4接口关联的参数数量。
+- **Argument definition**: 指定分配给每个AXI4接口的指针参数。为每个参数分配一个ID值，该值可用于从主机应用程序访问参数。可以在向导的摘要页面上找到此ID值分配。  
 
 ![Missing Image: maxi.PNG](./images/maxi.PNG)  
 
-1. In Number of AXI master interfaces, select **2** since the Vector-Accumulate kernel has two AXI4 interfaces.
+1. 在“Number of AXI master interfaces”行, 选择 **2** ，是因为Vector-Accumulate内核有两个AXI4接口。
 
-2. In the AXI master definition section:
-   1. Do not modify the interface names.
-   2. Do not modify the width.
-   3. For Number of arguments, select **1** since each AXI4 interface is dedicated to a single pointer argument.
+2. 在“AXI master definition”区域:
+   1. 不用修改“interface names”。
+   2. 不用修改“width”。
+   3. 在“Number of arguments”列, 选择 **1** ，是因为每个AXI4接口都专用于单个指针参数。
 
-3. In the Argument definition section, under Argument name:
-   1. For m00_axi, enter `A`. Dataset A is accessed through this AXI4 interface.
-   2. For m01_axi, enter `B`. Dataset B is accessed through this AXI4 interface.
-    The settings should be the same as the above screen capture.  
+3. 在“Argument definition section”区域, 在“Argument name”列:
+   1. 在“m00_axi”行, 写 `A`. 通过此AXI4接口访问数据集A.
+   2. 在“m01_axi”行, 写 `B`. 通过此AXI4接口访问数据集B.
+    
+设置应与上面的屏幕截图相同。  
 
-4. Click **Next**.  
-The Summary Page is displayed.  
+4. 单击 **Next**.  
+将显示摘要页面。  
 
 ## Example Summary Page
 
