@@ -87,75 +87,77 @@ void vadd_A_B(int *a, int *b, int scalar)
 
 对于本教程，执行 `B[i]=A[i]+B[i]` 的Vector-Accumulate RTL IP满足上述所有要求，并具有以下特征：
 
-- Two AXI4 memory mapped interfaces:
-  - One interface is used to read A
-  - One interface is used to read and write B
-  - The AXI4 masters used in this design do not use wrap, fixed, or narrow burst types.
-- An AXI4-Lite slave control interface:
-  - Control register at offset 0x00
-  - Kernel argument register at offset 0x10 allowing the host to pass a scalar value to the kernel.
-  - Kernel argument register at offset 0x18 allowing the host to pass the base address of A in global memory to the kernel
-  - Kernel argument register at offset 0x1C allowing the host to pass the base address of B in global memory to the kernel
 
-These specifications serve as the inputs to the RTL Kernel Wizard. With this information, the RTL Kernel Wizard generates the following:
-- An XML file necessary to package the RTL design as an SDAccel kernel `.xo` file
-- A sample kernel (RTL code, testbench, and host code) performing A[i] = A[i] + 1
-- A Vivado project for the kernel
+- 两个AXI4内存映射接口：
+   - 一个接口用于读取A.
+   - 一个接口用于读写B
+   - 本设计中使用的AXI4主机不使用环绕，固定或窄脉冲类型。
+ -  AXI4-Lite从控制接口：
+   - 偏移量为0x00的控制寄存器
+   - 内核参数寄存器偏移量为0x10，允许主机将标量值传递给内核。
+   - 内核参数寄存器偏移量为0x18，允许主机将全局内存中A的基址传递给内核
+   - 内核参数寄存器偏移量为0x1C，允许主机将全局内存中B的基址传递给内核
 
-As you continue through the tutorial, you will replace the sample kernel with the pre-existing Vector-Accumulate design, and package it as an `.xo` file.
 
-# Create an SDx Project
+这些规范用作RTL内核向导的输入。有了这些信息，RTL内核向导将生成以下内容：
+ - 将RTL设计打包为SDAccel内核 `.xo` 文件所需的XML文件
+ - 执行A [i] = A [i] + 1的示例内核（RTL代码，测试平台和主机代码）
+ - 内核的Vivado项目
 
-1. Use the `sdx` command to launch the SDx development environment in a terminal window in Linux.  
-The Workspace Launcher dialog box is displayed.  
+
+在继续学习本教程时，您将使用预先存在的Vector-Accumulate设计替换示例内核，并将其打包为 `.xo` 文件。
+
+# 创建一个SDx项目
+
+1. 使用 `sdx` 命令在Linux的终端窗口中启动SDx开发环境。
+将显示“工作区启动器”对话框。 
 ![error: missing image](images/183_launcher.png)  
 
-2. Select a location for your workspace, which is where the project will be located.  
-
-3. Click **Launch**.  
-The Welcome window opens.  
+2. 选择工作区的位置，这是项目所在的位置。
+3. 单击 **Launch**.  
+欢迎窗口打开。  
 ![error: missing image](images/welcome.png)  
->**NOTE**: The Welcome window opens when you use the tool for the first time, or by selecting **Help > Welcome**.
+>**注意**: 首次使用该工具时，或者选择 **Help > Welcome**,欢迎窗口打开。
 
-4. In the Welcome window, click **Create Application Project**.  
-The New SDx Application Project window opens.  
+4. 在“欢迎”窗口中，单击 **Create Application Project**.  
+将打开“New SDx Application Project”窗口。  
 ![error: missing image](images/newapplicationproject.png)
 
-5. Create a new SDx project:  
-   1. Enter a project name.  
-   2. Select **Use default location**.  
-   3. Click **Next**.  
-  The Platform page is displayed.  
+5. 创建一个新的SDx项目:  
+   1. 输入项目名称。  
+   2. 选择 **Use default location**.  
+   3. 单击 **Next**.  
+  将显示“平台”页面。  
 ![error: missing image](./images/183_hardware_platform_dialog.png)
 
-6. Select `xilinx_u200_xdma_201830_1`, and then click **Next**.  
-The Templates window opens, showing templates you can use to start building an SDAccel environment project. Unless you have downloaded other SDx examples, you should only see Empty Application and Vector Addition as available templates.  
+6. 选择 `xilinx_u200_xdma_201830_1`, 然后单击 **Next**.  
+将打开“模板”窗口，其中显示可用于开始构建SDAccel环境项目的模板。除非您已下载其他SDx示例，否则您应该只将空应用程序和向量添加视为可用模板。  
 ![error: missing image](./images/183_example_empty.png)
 
-   The selection of the hardware platform defines the project as an SDAccel or SDSoC™ environment project. In this case you have selected an SDAccel environment acceleration platform, so the project will be an SDAccel project.
+   硬件平台的选择将项目定义为SDAccel或SDSoC™环境项目。在这种情况下，您选择了一个SDAccel环境加速平台，因此该项目将是一个SDAccel项目。
 
-7. Select `Empty Application`, and click **Finish**. This closes the new project wizard and takes you back to the main SDx GUI window.
+7. 选择 `Empty Application`, 然后单击 **Finish**. 这将关闭新项目向导并返回主SDx GUI窗口。
 
-8.  From the top menu bar of the SDx GUI, click **Xilinx**->**RTL Kernel Wizard**, as shown in the following figure.  
+8.  从SDx GUI的顶部菜单栏, 单击 **Xilinx**->**RTL Kernel Wizard**, 如下图所示。  
 ![Missing Image: RTL Wizard Menu](images/RTLKernelWizard.png)  
 
-A *Welcome to SDx RTL Kernel Wizard* page is displayed with a summary of the kernel wizard features. Review the usage information.
+一个 *"Welcome to SDx RTL Kernel Wizard"* 页面，其中包含内核向导功能的摘要。查看使用信息。
 
-# Configuration with the RTL Kernel Wizard
+# 使用RTL内核向导进行配置
 
-The RTL Kernel Wizard guides you through the process of specifying the interface characteristics for an RTL kernel. Using the RTL Kernel Wizard ensures that the RTL IP is packaged into a valid kernel that can be integrated into a system by SDAccel. Using the wizard has an added benefit of automating some necessary tasks for packaging the RTL IP into a kernel.
+RTL内核向导将指导您完成指定RTL内核的接口特性的过程。使用RTL内核向导可确保将RTL IP打包到可由SDAccel集成到系统中的有效内核中。使用该向导还有一个额外的好处，即可以自动执行将RTL IP打包到内核中的一些必要任务。
 
-## General Settings
+## 常规设置
 
-- **Kernel Identification**: Specifies the vendor, kernel name, and library, known as the "Vendor:Library:Name:Version" (VLNV) of the IP. The kernel name should match the top module name of the IP you are using for the RTL kernel.
-- **Kernel Options**: Specifies the design type.
-  - **RTL** (default): Generates the associated files in a Verilog format.
-  - **Block design**: Generates a block design for the Vivado™ tools IP Integrator. The block design consists of a MicroBlaze™ subsystem that uses a block RAM exchange memory to emulate the control registers.
-- **Clock and Reset Options**: Specifies the number of clocks used by the kernel and whether the kernel needs a top-level reset port.
+- **Kernel Identification**: 指定供应商，内核名称和库，称为IP的“供应商：库：名称：版本”（VLNV）。内核名称应与您用于RTL内核的IP的顶层模块名称匹配。
+- **Kernel Options**: 指定设计类型。
+  - **RTL** (default): 以Verilog格式生成关联文件。
+  - **Block design**: 为Vivado™工具IP Integrator生成块设计。块设计包括MicroBlaze™子系统，该子系统使用Block RAM交换存储器来模拟控制寄存器。
+- **Clock and Reset Options**: 指定内核使用的时钟数以及内核是否需要顶级重置端口。
 
-1. For Kernel Identification, specify the kernel name as `Vadd_A_B`.
+1. 对于内核标识，请将内核名称指定为 `Vadd_A_B`。
 
-2. For the remaining options, keep the default values, and click **Next**.  
+2. 对于其余选项，请保留默认值，然后单击 **Next**.  
 ![Missing Image: P1.PNG](./images/P1.PNG)
 
 ## Scalars
