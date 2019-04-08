@@ -19,21 +19,21 @@
 
 本实验使用Xilinx®SDAccel™示例GitHub存储库中的示例，该存储库可在此处找到。 [here](https://github.com/Xilinx/SDAccel_Examples).
 
-## Step 1: Create an SDAccel Project From a GitHub Example
+## Step 1: 从GitHub示例创建SDAccel项目
 
-1. Use the `sdx` command to launch the SDx development environment in a terminal window in Linux.
+1. 使用 `sdx` 命令在Linux的终端窗口中启动SDx开发环境。
 
-   The Workspace Launcher dialog box is displayed.
+   将显示“Workspace Launcher”对话框。
 
-2. Select a location for your workspace, which is where the project will be located.
+2. 选择工作区的位置，这是项目所在的位置。
 
    ![error: missing image](./images/183_launcher.png)
 
-3. Click **Launch**.
+3. 单击 **Launch**。
 
-   The Welcome window opens.
+   欢迎窗口打开。
 
-   >**NOTE**: The Welcome window opens when you use the tool for the first time, or by selecting **Help > Welcome**.
+   >**注意**: 首次使用该工具时，或者通过选择 **Help > Welcome**，将打开“欢迎”窗口。
 
 4. In the Welcome window, click **Create Application Project**.
 
