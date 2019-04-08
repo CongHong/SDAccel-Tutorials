@@ -26,7 +26,7 @@ Read this page in other languages:<a href="/docs-jp/README.md">日本語</a>
    <tr>
    <td align="center"><a href="docs/getting-started-c-kernels/README.md">Getting Started with C/C++ Kernels</a></td>
    <td align="center">C</td>
-   <td>This tutorial demonstrates building a basic OpenCL™-based design using the SDx™ development environment GUI and learning some of the features that enable you to do performance profiling and optimization.</td>
+   <td>本教程演示了如何使用SDx™开发环境GUI构建基于OpenCL™的基本设计，并学习一些使您能够进行性能分析和优化的功能。</td>
    </tr>
    </table>
 
@@ -41,22 +41,22 @@ Read this page in other languages:<a href="/docs-jp/README.md">日本語</a>
  <tr>
  <td align="center"><a href="docs/mixing-c-rtl-kernels/README.md">Mixing C and RTL</a></td>
  <td align="center">C and RTL</td>
- <td>This tutorial demonstrates working with an application containing RTL and OpenCL™ kernels to familiarize yourself with the SDAccel™ environment flow, along with various design analysis features.</td>
+ <td>本教程演示如何使用包含RTL和OpenCL™内核的应用程序来熟悉SDAccel™环境流以及各种设计分析功能。</td>
  </tr>
  <tr>
  <td align="center"><a href="docs/using-multiple-cu/README.md">Using Multiple Compute Units</a></td>
  <td align="center">C and RTL</td>
- <td>This tutorial demonstrates the flexible kernel linking process to increase the number of kernel instances on an FPGA, which improves the parallelism in a combined host-kernel system.</td>
+ <td>本教程演示了灵活的内核链接过程，以增加FPGA上的内核实例数量，从而提高组合主机 - 内核系统的并行性。</td>
  </tr>
  <tr>
  <td align="center"><a href="docs/host-code-opt/README.md">Host Code Optimization</a></td>
  <td align="center">C and RTL</td>
- <td>This tutorial demonstrates applying host code optimization techniques to your design.</td>
+ <td>本教程演示如何将主机代码优化技术应用于您的设计。</td>
  </tr>
  <tr>
  <td align="center"><a href="docs/mult-ddr-banks/README.md">Using Multiple DDR Banks</a></td>
  <td align="center">C and RTL</td>
- <td>This tutorial demonstrates how using multiple DDRs can improve data transfer between kernels and global memory.</td>
+ <td>本教程演示了如何使用多个DDR可以改善内核和全局内存之间的数据传输。</td>
  </tr>
  </table>
 
@@ -71,7 +71,7 @@ Read this page in other languages:<a href="/docs-jp/README.md">日本語</a>
  <tr>
  <td align="center"><a href="docs/controlling-vivado-impl/README.md">Controlling Vivado Implementation</a></td>
  <td align="center">RTL</td>
- <td>This tutorial demonstrates how you can control the Vivado® tools flow when implementing your project.</td>
+ <td>本教程演示了在实现项目时如何控制Vivado®工具流程。</td>
  </tr>
  </table>
 
