@@ -98,25 +98,25 @@ q.enqueueTask(krnl_vector_add);
 1. 在“Project Explorer”下，双击**project.sdx**以打开“SDx Application Project Settings”窗口。  
 ![Missing Image:OpenSDxAppPrj](images/mixing-c-rtl-kernels_open_sdx_app_prj_settings.PNG)  
 
-2. Click the lightning bolt icon in the Hardware Function section, as shown below.  
+2. 单击“Hardware Function”部分中的闪电图标，如下所示。  
 ![Missing Image:HW_Functions](images/mixing-c-rtl-kernels_hw_functions.PNG)  
-After you click the lightning bolt icon, the SDx™ development environment scans all your source files, and automatically identifies kernels present in the project (in this case, there is only one kernel).
-3. Select the kernel, and then click **OK**.  
-A binary container with the default ‘binary_container_1’ name is created containing the krnl_vadd, as shown below.  
+单击闪电图标后，SDx™开发环境将扫描所有源文件，并自动识别项目中存在的内核（在这种情况下，只有一个内核）。
+3. 选择内核，然后单击 **OK**。 
+创建一个包含默认“binary_container_1”名称的二进制容器，其中包含krnl_vadd，如下所示。 
 ![Missing Image:BinContainer](images/mixing-c-rtl-kernels_bin_container_with_cpp.PNG)  
 
-Now, the project is ready to be compiled (i.e., built).
+现在，该项目已准备好进行编译（即构建）。
 
-### Compile the Project
+### 编译项目
 
-1. In the SDx Application Project Settings window, ensure that **Emulation-SW** is the active configuration:  
+1. 在“SDx Application Project Settings”窗口中，确保配置为**Emulation-SW**：  
 ![Missing Image:SW_EMU](images/mixing-c-rtl-kernels_sw_emulation.PNG)  
-2. Click on the hammer icon to start the compilation process:  
+2. 单击锤子图标以开始编译过程：  
 ![Missing Image:HammerCompile](images/mixing-c-rtl-kernels_hammer.PNG)  
->**NOTE**: You will use software emulation to validate the function of the host code and kernel. Software emulation runtime is very fast, because both the host code and the kernel code are compiled and run on the x86 processor of the development machine.
-3. To run emulation, click on the run icon:  
+>**注意**: 您将使用软件模拟来验证主机代码和内核的功能。软件仿真运行时非常快，因为主机代码和内核代码都是在开发机器的x86处理器上编译和运行的。
+3. 运行模拟，单击运行图标： 
 ![Missing Image:RunIcon](images/run_icon.PNG)  
-When the application completes successfully, you will see `TEST WITH ONE KERNEL PASSED` in the Console window.
+当应用程序成功完成时，您将在控制台窗口中看到'TEST WITH ONE KERNEL PASSED'。
 
 ### Application Timeline review
 
