@@ -137,7 +137,7 @@
 
    ![error: missing image](./images/183_application_timeline.png)  
 
-   概要摘要和应用程序时间线提供有关主机代码和内核如何通信和处理内核信息的数据。您可以使用“调试”功能来完成主机内核处理并识别问题。
+   “Profile Summary”和“Application Timeline”提供有关主机代码和内核如何通信和处理内核信息的数据。您可以使用“Debug”功能来完成主机内核处理并识别问题。
 7. 在Project Explorer窗口中，要在编辑器中打开文件，请双击 **host.cpp** (位于 **Explorer > src` 目录**).
 
 8. 在可以在Debug中运行之前，必须设置断点。在执行的关键点设置断点有助于识别问题。要在内核调试之前暂停主机代码，请在(`OCL_CHECK(err, err = q.enqueueMigrateMemObjects({buffer_in1, buffer_in2},0/* 0 means from host*/));`)上的蓝色区域（见下图）中右键单击 <`line 89`> 并选择 **Toggle Breakpoint**。
