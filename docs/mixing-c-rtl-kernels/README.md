@@ -82,20 +82,20 @@ void krnl_vadd(
                 int* c,
                 const int n_elements)
 ```
-Finally, on line 171, the following OpenCL API launches the `krnl_vector_add` kernel:
+最后，在第171行，以下OpenCL API启动`krnl_vector_add`内核：
 
 ```
 q.enqueueTask(krnl_vector_add);
 ```
 
-When we add the RTL-based code, we will add identical calls for that kernel.
-As you can see, the high-level OpenCL calls are independent of the language that the kernel was programmed in.
+当我们添加基于RTL的代码时，我们将为该内核添加相同的调用。
+如您所见，高级OpenCL调用独立于内核编程的语言。
 
->**NOTE**: Complete details on host code programming can be found in the _SDAccel Environment Programmers Guide_ ([UG1277](https://www.xilinx.com/support/documentation/sw_manuals/xilinx2018_3/ug1277-sdaccel-programmers-guide.pdf)).
+>**注意**: 有关主机代码编程的完整详细信息，请参见 _SDAccel Environment Programmers Guide_ ([UG1277](https://www.xilinx.com/support/documentation/sw_manuals/xilinx2018_3/ug1277-sdaccel-programmers-guide.pdf)).
 
-### Create a Binary Container containing the C++ Kernel
+### 创建一个包含C ++内核的二进制容器
 
-1. Under Project Explorer, double-click **project.sdx** to open the SDx Application Project Settings window.  
+1. 在“Project Explorer”下，双击** project.sdx **以打开“SDx Application Project Settings”窗口。  
 ![Missing Image:OpenSDxAppPrj](images/mixing-c-rtl-kernels_open_sdx_app_prj_settings.PNG)  
 
 2. Click the lightning bolt icon in the Hardware Function section, as shown below.  
