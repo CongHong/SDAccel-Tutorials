@@ -118,125 +118,136 @@ q.enqueueTask(krnl_vector_add);
 ![Missing Image:RunIcon](images/run_icon.PNG)  
 当应用程序成功完成时，您将在控制台窗口中看到`TEST WITH ONE KERNEL PASSED`。
 
-### Application Timeline review
+### 申请时间表审核
 
-Look at the Application Timeline generated during software Emulation. The Application Timeline collects and displays host and device events on a common timeline. You can use it to visualize the host events and the kernel running.
-1. In the Assistant view, expand **Emulation-SW**, and then expand **mixed_c_rtl-Default**, as shown below.  
+查看软件仿真期间生成的应用程序时间轴。应用程序时间轴在公共时间轴上收集和显示主机和设备事件。您可以使用它来可视化主机事件和运行的内核。
+1. 在“Assistant”视图中，展开**Emulation-SW**，然后展开**mixed_c_rtl-Default**，如下所示。  
 ![Missing Image:Application Timeline 1](images/mixed_c_rtl_default_from_assistant.png)
-2. Double-click **Application Timeline** to see host events, including creating the program and buffers.
-3.	Under the **Device**->**Binary Container**, you will see a line called `Compute Unit krnl_vadd_1`.  Traverse along the timeline and zoom in to see where the compute unit `krnl_vadd_1` is running.  
+2. 双击**Application Timeline** 以查看主机事件，包括创建程序和缓冲区。
+3.	在**Device** - > **Binary Container**下，您将看到一行名为`Compute Unit krnl_vadd_1`的行。沿时间轴移动并放大以查看计算单元`krnl_vadd_1`的运行位置。  
 ![Missing Image:Application Timeline 1](images/mixing-c-rtl-kernels_timeline_one_kernel.PNG)  
-After reviewing, close the Application Timeline window.  
->**NOTE:** A compute unit is an instantiation of the kernel on the FPGA.
+查看后，关闭“Application Timeline”窗口。  
+>**注意:** 计算单元是FPGA上内核的实例。
 
-## Creating an RTL Kernel
+## 创建RTL内核
 
-Now that you have successfully added and run a C++ kernel, you are going to add an RTL Kernel to the `prj_c_rtl` project. Then, you will build and run both the C++ and RTL kernels.  For the SDAccel environment, the source of a kernel can be any one of the supported languages:
+既然您已经成功添加并运行了C ++内核，那么您将在`prj_c_rtl`项目中添加一个RTL内核。然后，您将构建并运行C ++和RTL内核。对于SDAccel环境，内核的源代码可以是任何一种受支持的语言：
 * OpenCL
 * C/C++
 * RTL
 
-As you will see, regardless of how the kernels were designed, the host code accesses the kernels through similar function calls.  
+正如您将看到的，无论内核是如何设计的，主机代码都通过类似的函数调用来访问内核。  
 
-### Use the RTL Kernel Wizard
+### 使用RTL内核向导
 
-First, you will use the RTL Kernel Wizard to generate a kernel that will add a constant to an input vector. The RTL Kernel Wizard can automate some of the steps needed to package an RTL design into a compiled kernel object file (`.xo`) that can be accessed by the SDAccel environment.
+首先，您将使用RTL内核向导生成一个内核，该内核将向输入向量添加常量。 RTL内核向导可以自动执行将RTL设计打包到可由SDAccel环境访问的已编译内核对象文件（`.xo`）中所需的一些步骤。
 
-By default, the wizard creates a simple vector addition kernel, like the C++ kernel used in the first part of this tutorial. You will create and add this RTL Kernel to your project.  
->**IMPORTANT**: For the purposes of creating the RTL kernel in this tutorial, you will quickly walk through the steps without much detail. However, the RTL Kernel Wizard is discussed in detail in the [Getting Started with RTL Kernels](./docs/getting-started-rtl-kernels/README.md) tutorial. In addition, complete details of the RTL Kernel Wizard can be found in the _SDAccel Environment User Guide_ ([UG1023](https://www.xilinx.com/cgi-bin/docs/rdoc?v=2018.3;d=ug1023-sdaccel-user-guide.pdf)).
+默认情况下，向导会创建一个简单的向量添加内核，就像本教程第一部分中使用的C ++内核一样。您将创建此RTL内核并将其添加到项目中。  
+>**重要**：为了在本教程中创建RTL内核，您将很快完成这些步骤。但是，RTL内核向导将在 [Getting Started with RTL Kernels](./docs/getting-started-rtl-kernels/README.md) 教程中详细讨论。此外，可以在 _SDAccel Environment User Guide_ ([UG1023](https://www.xilinx.com/cgi-bin/docs/rdoc?v=2018.3;d=ug1023-sdaccel-user-guide.pdf))中找到RTL内核向导的完整详细信息。
 
-##### Open the RTL Kernel Wizard
+##### 打开RTL内核向导
 
-1.	Under the Xilinx menu, select **RTL Kernel Wizard**. This opens the RTL Kernel Wizard, which starts with a Welcome page.
-2. Click **Next**.
-3. In the General Settings dialog box, keep all the default settings, and click **Next**.
-4. In the Scalars dialog box, set the number of scalar arguments to `0`, and click **Next**.
-5. In the Global Memory dialog box, keep all the default settings, and click **Next**.  
-The Summary dialog box provides a summary of the RTL kernel settings and includes a function prototype which conveys what a kernel call would look like as a C function.
-6. Click **OK**.
+1.	在“Xilinx”菜单下，选择**RTL Kernel Wizard**。这将打开RTL内核向导，该向导以欢迎页面开始。
+2. 单击 **Next**.
+3. 在“General Settings”对话框中，保留所有默认设置，然后单击 **Next**。
+4. 在“Scalars”对话框中，将标量参数的数量设置为`0`，然后单击**Next**。
+5. 在“Global Memory”对话框中，保留所有默认设置，然后单击 **Next**。  
+“Summary”对话框提供了RTL内核设置的摘要，并包含一个函数原型，它将内核调用的内容表示为C函数。
+6. 单击 **OK**。
 
 
-### The Vivado project
+### Vivado项目
 
-At this point, the Vivado™ Design Suite will open with a project for the generated RTL code. The RTL code generated and configured by the RTL Kernel wizard corresponds to the `A = A + 1 function`.  You can navigate to review the source files, or even run RTL simulation.  However, for this tutorial, you will only generate the RTL Kernel.
+此时，Vivado™设计套件将打开一个项目，用于生成的RTL代码。由RTL内核向导生成和配置的RTL代码对应于`A = A + 1 function`。您可以查看源文件，甚至可以运行RTL模拟。但是，对于本教程，您将只生成RTL内核。
 
-1. In Flow Navigator, click **Generate RTL Kernel**, as shown below.  
+1. 在"Flow Navigator"中，单击**Generate RTL Kernel**，如下所示。  
 ![Missing Image:Flow Navigator](images/mixing-c-rtl-kernels_flow_navigator.png)  
-2. In the Generate RTL Kernel dialog box, select the **Sources-only** kernel packaging option.
-3. For Software Emulation Sources (optional), you can add a C++ model of the RTL kernel, which can be used in the SDAccel tool during software emulation. The C++ model must be coded by the design engineer. Typically, there is no C++ model available and Hardware Emulation is used to test the design.  
-Since the RTL Wizard creates a C++ model of the VADD design, it can now be added.
-4. Click `…` (the browser button).
-5. Double-click the `imports` directory.
-6. Select the only `.cpp` file, and then click **OK**.
-7. Click **OK** again to generate the RTL kernel.
-8. After the RTL kernel has been generated successfully, click **Yes** to exit the Vivado Design Suite, and return to the SDAccel environment.
+2. 在"Generate RTL Kernel"对话框中，选择**Sources-only**内核打包选项。
+3. 对于软件仿真源（可选），您可以添加RTL内核的C ++模型，该模型可在软件仿真期间用于SDAccel工具。 C ++模型必须由设计工程师编写。通常，没有可用的C ++模型，并且使用硬件仿真来测试设计。
+由于RTL向导创建了VADD设计的C ++模型，现在可以添加它。
+4. 单击 `…` (浏览按键)。
+5. 双击`imports`目录。
+6. 选择唯一的`.cpp`文件，然后单击 **OK**。
+7. 再次单击**OK**以生成RTL内核。
+8. 成功生成RTL内核后，单击**Yes**退出Vivado Design Suite，然后返回SDAccel环境。
 
-## Adding RTL and C++ Kernels to the Host Code
+## 将RTL和C ++内核添加到主机代码中
 
-In the SDAccel environment, you will be returned to the `rtl_c_prj` project that you started from. Expand the `src` directory the Project Explorer, and you will see that the RTL kernel has been added to the project under `sdx_rtl_kernel`.
+在SDAccel环境中，您将返回到您开始的`rtl_c_prj`项目。展开项目浏览器的`src`目录，您将看到RTL内核已添加到`sdx_rtl_kernel`下的项目中。
 
-The kernel source folder contains two files:
-- `host_example.cpp` (sample host code)
-- `.xo` file (RTL Kernel)  
+内核源文件夹包含两个文件：
+- `host_example.cpp` (示例主机代码)
+- `.xo` 文件 (RTL内核)  
 ![Missing Image:KernelDir](images/mixing-c-rtl-kernels_kernel_dir_structure.PNG)
 
-Since the project already includes the host code, you must delete the generated `host_example.cpp` file.  To do this right-click the `host_example.cpp` file and select **delete**.
+由于项目已包含主机代码，因此必须删除生成的`host_example.cpp`文件。要执行此操作，右击`host_example.cpp`文件并选择**delete**。
 
-### Add New Kernel to Binary Container
+### 将新内核添加到二进制容器中
 
-With the new kernel added to the project, you must now add it to the binary container.
+将新内核添加到项目中后，您现在必须将其添加到二进制容器中。
 
-1. In the SDx Application Project Settings window, from the Hardware Functions area, click on the lightning bolt icon.
-2. Select the RTL kernel that you just created, and then click **OK**.  
-This adds the RTL kernel to the binary container (which already contains the C++ kernel).
-3. Update the host code (`host.cpp`) to incorporate the new kernel, since the updates have already been done. Open the `host.cpp` file, and remove the comment `//` on line 49 to define `ADD_RTL_KERNEL`:
-  * Before:
+1. 在“SDx Application Project Settings”窗口中，从“硬件功能”区域中单击闪电图标。
+2. 选择刚刚创建的RTL内核，然后单击 **OK**。  
+这将RTL内核添加到二进制容器（已包含C ++内核）。
+3. 更新主机代码（`host.cpp`）以合并新内核，因为更新已经完成。打开`host.cpp`文件，删除第49行的注释`//`以定义`ADD_RTL_KERNEL`：
+
+  * 原代码:
   ```
   //#define ADD_RTL_KERNEL
   ```
-  * After:
+  * 修改后代码:
   ```
   #define ADD_RTL_KERNEL
   ```
 
-4. Save the file.
+4. 保存文件。
 
-  The updated `host.cpp` file includes additional OpenCL calls and are briefly described as follows. The actual OpenCL calls are identical to the ones used for the C++ based kernel, with the arguments changed for the RTL-based kernel.  
+  更新的`host.cpp`文件包含其他OpenCL调用，简要描述如下。实际的OpenCL调用与用于基于C ++的内核的调用相同，并且基于RTL的内核的参数已更改。 
 
-  Though the first set of code was not changed, the binary container now contains _both_ the C++ and RTL kernels.
+  虽然第一组代码没有改变，但二进制容器现在包含C ++和RTL内核。
+  
   ```
   cl::Program::Binaries bins;
   bins.push_back({buf,nb});
   devices.resize(1);
   cl::Program program(context, devices, bins);
   ```
-  The following code gets the `sdx_kernel_wizard_0` object from the program and assigns the name `krnl_const_add` on line 145. The `sdx_kernel_wizard_0` object name will match the name generated with the RTL Wizard.
+  
+  下面的代码从程序中获取`sdx_kernel_wizard_0`对象，并在第145行分配名称`krnl_const_add`。`sdx_kernel_wizard_0`对象名称将与RTL向导生成的名称匹配。
+  
 ```
 cl::Kernel krnl_const_add(program,"sdx_kernel_wizard_0");
 ```
-  Next we define the `krnl_const_add` kernel arguments on line 168. Important to note that in the host code, the buffer 'buffer_results' is passed directly from the C kernel to the RTL kernel via DDR without being moved back to the host memory.
+
+  接下来，我们在第168行定义`krnl_const_add`内核参数。需要注意的是，在主机代码中，缓冲区'buffer_results'通过DDR直接从C内核传递到RTL内核，而不会移回主机内存。
+  
 ```
 krnl_const_add.setArg(0,buffer_result);
 ```
->**NOTE**: In the host code, the `buffer_results` buffer is passed directly from the C kernel to the RTL kernel via DDR without being moved back to the host memory.
-  Launch the `krnl_const_add` kernel on line 173:
+
+>**注意**: 在主机代码中，`buffer_results`缓冲区通过DDR直接从C内核传递到RTL内核，而不会移回主机内存。
+
+  
+在第173行启动`krnl_const_add`内核：
+
 ```
 q.enqueueTask(krnl_vector_add);
-```  
-With the RTL kernel added to the binary container and the host code, you can rebuild the project and run hardware emulation.
+```
 
-5. Ensure the active build configuration is set to **Emulation-HW**, then click on the run button, as shown below. This compiles and runs hardware emulation.  
+将RTL内核添加到二进制容器和主机代码后，您可以重建项目并运行硬件仿真。
+
+5. 确保将活动构建配置设置为**Emulation-HW**，然后单击运行按钮，如下所示。这将编译并运行硬件仿真。 
 ![Missing Image:RunButton](images/mixing-c-rtl-kernels_run_button.PNG)  
-You will see `TEST WITH TWO KERNELS PASSED` in the Console window when emulation completes.  
-Open the Application Timeline report once more to see that the two kernels are running.
+仿真完成后，您将在控制台窗口中看到“TEST WITH TWO KERNELS PASSED”。
+再次打开“Application Timeline”报告，以查看两个内核是否正在运行。
 
-6. In the Assistant window, expand **Emulation-HW** and the default kernel, and then double-click on the Application Timeline file to open it.  
-7. Under **Device**->**Binary Container**, traverse along the timeline and zoom in. You will now see both compute units `krnl_vadd_1` and `rtl_kernel` running.  
+6. 在“Assistant”窗口中，展开**Emulation-HW**和默认内核，然后双击“Application Timeline”文件将其打开。
+7. 在**Device** - > **Binary Container**下，沿着时间轴遍历并放大。现在您将看到两个计算单元`krnl_vadd_1`和`rtl_kernel`正在运行。 
 ![Missing Image:Application Timeline 2](images/mixing-c-rtl-kernels_timeline_two_kernels.PNG)
 
-## Conclusion
+## 总结
 
-This tutorial has demonstrated how SDAccel environment applications can use any combination of kernels, regardless of the language they were developed in. Specifically, we showed C++ and RTL based kernels running in the same application. The host code accesses and runs the kernels in an identical manner.
+本教程演示了SDAccel环境应用程序如何使用任何内核组合，无论它们是在何种语言中开发。具体来说，我们展示了在同一应用程序中运行的基于C ++和RTL的内核。主机代码以相同的方式访问和运行内核。
 
 <hr/>
 <p align="center"><sup>Copyright&copy; 2019 Xilinx</sup></p>
