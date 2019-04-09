@@ -1,7 +1,7 @@
 <table>
  <tr>
-   <td align="center"><img src="https://www.xilinx.com/content/dam/xilinx/imgs/press/media-kits/corporate/xilinx-logo.png" width="30%"/><h1>2018.3 SDAccel™ Development Environment Tutorials</h1>
-   <a href="https://github.com/Xilinx/SDAccel-Tutorials/branches/all">See other versions</a>
+   <td align="center"><img src="https://www.xilinx.com/content/dam/xilinx/imgs/press/media-kits/corporate/xilinx-logo.png" width="30%"/><h1>2018.3 SDAccel™开发环境教程</h1>
+   <a href="https://github.com/Xilinx/SDAccel-Tutorials/branches/all">查看其他版本</a>
    </td>
  </tr>
  <tr>
@@ -10,29 +10,29 @@
  </tr>
 </table>
 
-## Introduction
-The SDAccel™ development environment provides a platform to accelerate your functions in hardware. While the host software or application is developed in C/C++ with OpenCL™ API calls, the hardware component or kernel can be developed in C/C++, OpenCL C, or RTL.  In fact, SDAccel environment applications can use any combination of kernels developed in the different languages. This tutorial demonstrates an application using two kernels, where the host code accesses the kernels in an identical manner:
-* a kernel developed in C++
-* a kernel developed in RTL
+## 介绍
+SDAccel™开发环境提供了一个加速硬件功能的平台。虽然主机软件或应用程序是使用OpenCL™API调用在C / C ++中开发的，但硬件组件或内核可以用C / C ++，OpenCL C或RTL开发。实际上，SDAccel环境应用程序可以使用以不同语言开发的任何内核组合。本教程演示了使用两个内核的应用程序，其中主机代码以相同的方式访问内核：
+* 用C++开发的内核
+* 用RTL开发的内核
 
-### Workflow
-In this tutorial, you will use the SDAccel tool in GUI mode to initially create a new project, and add a C++ based kernel. Then, you will generate a binary container (xclbin) containing the C++ based kernel for implementation on an FPGA. Then, run the design in software emulation. You will review the generated Application Timeline report to see the kernel being called and run by the host application.
+### 工作流程
+在本教程中，您将在GUI模式下使用SDAccel工具来初始创建新项目，并添加基于C ++的内核。然后，您将生成一个二进制容器（xclbin），其中包含基于C ++的内核，以便在FPGA上实现。然后，在软件仿真中运行设计。您将查看生成的应用程序时间轴报告，以查看主机应用程序正在调用和运行的内核。
 
-In the second section, you will create a simple RTL kernel using the RTL Kernel Wizard and add it to the project. The binary container will be updated to include the RTL based kernel, as well as the C++ kernel. You will update the host code to use the RTL-based kernel and run hardware emulation. Once again, you will review the Application Timeline and see both kernels being called and run by the host application.
+在第二部分中，您将使用RTL内核向导创建一个简单的RTL内核并将其添加到项目中。二进制容器将更新为包含基于RTL的内核以及C ++内核。您将更新主机代码以使用基于RTL的内核并运行硬件仿真。再一次，您将查看应用程序时间轴，并查看主机应用程序调用和运行的两个内核。
 
-## Using C/C++ Kernels
-TO begin, launch the SDAccel environment, create a new project, and import sources. For reference, the _SDAccel Environment User Guide_ ([UG1023](https://www.xilinx.com/cgi-bin/docs/rdoc?v=2018.3;d=ug1023-sdaccel-user-guide.pdf)) provides specific details. The [Getting Started with C/C++ Kernels](./docs/getting-started-c-kernels/README.md) lab also walks through the specific steps in more detail.
+## 使用C / C ++内核
+首先，启动SDAccel环境，创建新项目并导入源。作为参考，_SDAccel Environment User Guide_ ([UG1023](https://www.xilinx.com/cgi-bin/docs/rdoc?v=2018.3;d=ug1023-sdaccel-user-guide.pdf)) 提供了具体的参考细节。[Getting Started with C/C++ Kernels](./docs/getting-started-c-kernels/README.md) 实验室还详细介绍了具体步骤。
 
-### Launch the SDAccel environment
-1. Open a Linux terminal, and run the following command to launch SDAccel in GUI mode:
+### 启动SDAccel环境
+1. 打开Linux终端，运行以下命令以GUI模式启动SDAccel：
 ```
 $ sdx
 ```  
-2. In the Workspace Launcher dialog box, create a new workspace called `Tutorial`, and click **OK** to continue. You can choose any location for the workspace.
+2. 在Workspace Launcher对话框中，创建一个名为 `Tutorial`的新工作区，然后单击 **OK** 继续。您可以选择工作区的任何位置。
 
-### Create a new project with the Project Creation wizard
+### 使用“Project Creation”向导创建新项目
 
-1. Select **SDx Application Project** from the File / New menu.
+1. 从File / New菜单中选择 **SDx Application Project** 。
 2. Specify the following project name: `mixed_c_rtl`
 3. Click **Next**.
 4. In the Platform dialog box, select the `xilinx_u200_xdma_201830_1` platform, and then click **Next**.
