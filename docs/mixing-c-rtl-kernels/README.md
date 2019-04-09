@@ -95,7 +95,7 @@ q.enqueueTask(krnl_vector_add);
 
 ### 创建一个包含C ++内核的二进制容器
 
-1. 在“Project Explorer”下，双击** project.sdx **以打开“SDx Application Project Settings”窗口。  
+1. 在“Project Explorer”下，双击**project.sdx**以打开“SDx Application Project Settings”窗口。  
 ![Missing Image:OpenSDxAppPrj](images/mixing-c-rtl-kernels_open_sdx_app_prj_settings.PNG)  
 
 2. Click the lightning bolt icon in the Hardware Function section, as shown below.  
