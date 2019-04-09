@@ -1,7 +1,7 @@
 <table style="width:100%">
   <tr>
-    <td align="center" width="100%" colspan="6"><img src="https://www.xilinx.com/content/dam/xilinx/imgs/press/media-kits/corporate/xilinx-logo.png" width="30%"/><h1>2018.3 SDAccel™ Development Environment Tutorials</h1>
-    <a href="https://github.com/Xilinx/SDAccel-Tutorials/branches/all">See other versions</a>
+    <td align="center" width="100%" colspan="6"><img src="https://www.xilinx.com/content/dam/xilinx/imgs/press/media-kits/corporate/xilinx-logo.png" width="30%"/><h1>2018.3 SDAccel™开发环境教程</h1>
+    <a href="https://github.com/Xilinx/SDAccel-Tutorials/branches/all">查看其他版本</a>
 </td>
   </tr>
   <tr>
@@ -13,13 +13,13 @@
 
 # Lab 2: Introduction to the SDAccel Makefile
 
-The following lab uses an example from the Xilinx® SDAccel™ Example GitHub repository, which can be found [here](https://github.com/Xilinx/SDAccel_Examples).
+以下实验使用了可以找到的Xilinx®SDAccel™示例GitHub存储库中的示例 [here](https://github.com/Xilinx/SDAccel_Examples).
 
-## Step 1: Prepare and Set up the SDAccel Environment
+## Step 1: 准备和设置SDAccel环境
 
-In this step, you will set up the SDx™ environment to run in command line and clone the GitHub repository for SDAccel™.
+在此步骤中，您将设置SDx™环境以在命令行中运行并克隆SDAccel™的GitHub存储库。
 
-1. Launch a terminal window and source the settings scripts found in the SDx environment using one of the following commands:
+1. 启动终端窗口并使用以下命令之一获取SDx环境中的设置脚本：
 
    ```c
    source <SDx_install_location>/<version>/settings64.csh
@@ -29,50 +29,50 @@ In this step, you will set up the SDx™ environment to run in command line and 
    source <SDx_install_location>/<version>/settings64.sh
    ```
 
-   This enables you to run the SDx command lines without having to use the GUI.
+   这使您无需使用GUI即可运行SDx命令行。
 
-   If you downloaded the SDAccel examples through the SDx IDE, as described in Lab 1, then you can access the files from that location. On Linux, the files are downloaded to `/home/<user>/.Xilinx/SDx/<version>/sdaccel_examples/` to a workspace of your choice using the following command:
+   如果您通过SDx IDE下载了SDAccel示例（如实验1中所述），则可以从该位置访问这些文件。在Linux上，使用以下命令将文件下载到 `/home/<user>/.Xilinx/SDx/<version>/sdaccel_examples/` 到您选择的工作区：
 
    ```
    git clone https://github.com/Xilinx/SDAccel_Examples <workspace>/examples
    ```
 
-   >**NOTE**: This GitHub repository is about 400 MB in size. Ensure you have enough space on a local or remote disk.
+   >**注意**: 这个GitHub存储库大小约为400 MB。确保本地或远程磁盘上有足够的空间。
 
-2. After the download is complete, navigate to the `vadd` directory in the SDAccel example using the following command:
+2. 下载完成后，使用以下命令找到SDAccel示例中的 `vadd` 目录：
 
    ```C
    cd <workspace>/examples/getting_started/host/helloworld_c
    ```
 
-   In this directory, run the `ls` command and view the files, which displays the following contents:
+   在此目录中，运行 `ls` 命令并查看文件，其中显示以下内容：
 
    ```C
    [sdaccel@localhost helloworld_c]$ ls
    Makefile    README.md    description.json src utils.mk
    ```
 
-   If you run the `ls` command on the `src` directory, it displays the following:
+   如果在 `src` 目录上运行 `ls` 命令，它将显示以下内容：
 
    ```C
    [sdaccel@localhost helloworld_c]$ ls src
    host.cpp    vadd.cpp
    ```
 
-## Step 2: Initial Design and Makefile Exploration
+## Step 2: 初始设计和Makefile探索
 
-The `helloworld_c` directory contains the Makefile file, which you will use:
+`helloworld_c` 目录包含Makefile文件，您将使用它：
 
-* To compile the design in both Hardware and Software Emulation
-* To generate a System Run
+* 在硬件和软件仿真中编译设计
+* 生成系统运行
 
-1. In a text editor, open the Makefile.
+1. 在文本编辑器中，打开Makefile。
 
-2. View the content and become familiar with how it is written, such as the bash style syntax that it uses.
+2. 查看内容并熟悉其编写方式，例如它使用的bash样式语法。
 
-   >**NOTE**: The file itself makes references to generic makefiles that are used by all GitHub example designs.
+   >**注意**: 该文件本身引用了所有GitHub示例设计使用的通用makefile。
 
-   The first few lines contain `include` statements for other generic makefiles that are used by all the examples.
+   前几行包含所有示例使用的其他通用makefile的 `include` 语句。
 
    ```c
    COMMON_REPO = ../../../
@@ -81,15 +81,15 @@ The `helloworld_c` directory contains the Makefile file, which you will use:
    include ./utils.mk
    ```
 
-3. Scroll down to line 22 and see the following:
+3. 向下滚动到第22行并查看以下内容：
 
    ```c
    TARGETS:=hw
    ```
 
-   Here, `TARGETS` defines what default build to have (if not specified in the makefile command line). By default, it is set to `hw` (System build). When you work on your own design, you will set the desired value.
+   这里，`TARGETS` 定义了默认构建（如果没有在makefile命令行中指定）。默认情况下，它设置为 `hw`（系统构建）。当您处理自己的设计时，您将设置所需的值。
 
-4. Open the `./utils.mk` makefile, which contains the flags and command line compiler info needed to build the host and source code.
+4. 打开 `./utils.mk` makefile，它包含构建主机和源代码所需的标志和命令行编译器信息。
 
    ```c
    # By Default report is set to none, no report will be generated  
@@ -112,32 +112,32 @@ The `helloworld_c` directory contains the Makefile file, which you will use:
    endif
    ```
 
-   >**NOTE**: `REPORT`, `PROFILE` and `DEBUG` are input flags (parameters) for the `make` command in the terminal. Notice that the `CLFLAGS` is building a long list of `xocc` command line flags to be used.
+   >**注意**: `REPORT`, `PROFILE` 和 `DEBUG` 是终端中 `make` 命令的输入标志（参数）。请注意， `CLFLAGS` 正在构建一个要使用的 `xocc` 命令行标志的长列表。
+   
+5. 关闭 `utils.mk` 并重新回到 Makefile.
 
-5. Close `utils.mk` and refocus on the Makefile.
+6. 回顾第44行及以后的内容。请注意，此文件处理源代码所在的大部分位置，并命名内核和应用程序可执行文件。
 
-6. Review lines 44 and beyond. Note that this file handles the majority of where the source code is located, and names the kernel and application executables.
+## Step 3: 运行软件仿真
 
-## Step 3: Run Software Emulation
+现在你已经了解了makefile构造的一部分，现在是时候编译代码来运行Software Emulation了。
 
-Now that you understand parts of the makefile construction, it is time to compile the code to run Software Emulation.
-
-1. To compile the application for Software Emulation, run the following command:
+1. 要编译软件仿真的应用程序，请运行以下命令：
 
    ```C
    make all REPORT=estimate TARGETS=sw_emu DEVICES=xilinx_u200_xdma_201830_1`
    ```
 
-   The four files that are generated are:
+   生成的四个文件是：
 
    * host (host executable)
    * `xclbin/vadd.sw_emu.xilinx_u200_xdma_201830_1.xclbin` (binary container)
    * A system estimate report
    * `emconfig.json`
 
-2. To verify that these files were generated, run an `ls` command in the directory.
+2. 要验证是否生成了这些文件，请在目录中运行 `ls` 命令。
 
-   The following is displayed:
+   显示以下内容：
 
    ```C
    [sdaccel@localhost helloworld_c]$ ls
@@ -154,17 +154,17 @@ Now that you understand parts of the makefile construction, it is time to compil
    xilinx_u200_xdma_201830_1 this folder contains the emconfig.json file
    ```
 
-3. To run the application in emulation, run the following command:
+3. 要在仿真中运行应用程序，请运行以下命令：
 
    ```C
    make check PROFILE=yes TARGETS=sw_emu DEVICES=xilinx_u200_xdma_201830_1
    ```
 
-   >**NOTE**: Ensure sure that value for `DEVICES` specified above is the same as what was used for compilation in the **Initial Design and Makefile Exploration** section.
+   >**注意**: 确保上面指定的 `DEVICES` 的值与 **Initial Design and Makefile Exploration** 部分中用于编译的值相同。
 
-   In this flow, it runs the previous command and the application.
+   在此流程中，它运行上一个命令和应用程序。
 
-   If the application runs successfully, the following messages appear in the terminal:
+   如果应用程序成功运行，则终端中将显示以下消息：
 
    ```C
    [sdaccel@localhost helloworld_c]$ make check TARGETS=sw_emu DEVICES=xilinx_u200_xdma_201830_1
@@ -181,14 +181,14 @@ Now that you understand parts of the makefile construction, it is time to compil
    INFO: Done writing sdaccel_profile_summary.html
    ```
 
-   To generate additional reports, you would do one of the following:
+   要生成其他报告，您可以执行以下操作之一：
 
-   * set environment variables
-   * create a file called `sdaccel.ini` with appropriate information and permissions.
+   * 设置环境变量
+   * 使用适当的信息和权限创建一个名为 `sdaccel.ini` 的文件。
 
-## Step 4: Generate Additional Reports
+## Step 4: 生成其他报告
 
-In this tutorial, you will create the `sdaccel.ini` file in the `helloworld_c` directory, and add the following contents:
+在本教程中，您将在 `helloworld_c` 目录中创建 `sdaccel.ini` 文件，并添加以下内容：
 
 ```C
 [Debug]
@@ -196,76 +196,76 @@ timeline_trace = true
 profile = true
 ```
 
-1. Run the command following command:
+1. 运行以下命令的命令：
 
    ```C
    make check PROFILE=yes TARGETS=sw_emu DEVICES=xilinx_u200_xdma_201830_1
    ```
 
-   After the application completes, there is an additional timeline trace file called `sdaccel_timeline_trace.csv`.
+   应用程序完成后，还有一个名为 `sdaccel_timeline_trace.csv`的附加时间线跟踪文件。
 
-2. To view the trace report in the GUI, convert the CSV file into a WDB file using this command:
+2. 要在GUI中查看跟踪报告，请使用以下命令将CSV文件转换为WDB文件：
 
    ```C
    sdx_analyze trace sdaccel_timeline_trace.csv
    ```
 
-   The application generates a profiling summary report called `sdaccel_profile_summary` in CSV format.
+   该应用程序以CSV格式生成名为 `sdaccel_profile_summary` 的分析摘要报告。
 
-3. To explore the report in the SDx IDE, convert `sdaccel_timeline_trace.csv` into a report type shown in Lab 1: profile summary. Run the following command:
+3. 要在SDx IDE中浏览报告，请将 `sdaccel_timeline_trace.csv` 转换为实验1：配置文件摘要中显示的报告类型。运行以下命令：
 
    ```C
    sdx_analyze profile sdaccel_profile_summary.csv
    ```
 
-   This generates an `sdaccel_profile_summary.xprf` file.
+   这会生成一个 `sdaccel_profile_summary.xprf` 文件。
 
-4. To view this report, in the SDx IDE, select **File** > **Open File**, and select the file from the menu.
+4. 要查看此报告，请在SDx IDE中选择 **File** > **Open File**，然后从菜单中选择文件。
 
-   The report is shown below.
+   报告如下所示。
 
    ![error: missing image](./images/183_lab2-sw_emu_profile.png)
 
-   >**NOTE**: For viewing these reports, you do not need to use the workspace you previously used in Lab 1. To create a workspace locally for viewing these reports, use the following command:
+   >**注意**: 要查看这些报告，您不需要使用先前在实验1中使用的工作空间。要在本地创建工作空间以查看这些报告，请使用以下命令：
    >```C
    >sdx -workspace ./lab2
    >```
    >
-   > You may also need to close the Welcome Window to view the report.
+   > 您可能还需要关闭“Welcome Window”才能查看报告。
    >
-   >Software Emulation does not provide all the profiling information (such as data transfer between kernel and global memory). This information is available in Hardware Emulation and System.
+   >软件仿真不提供所有分析信息（例如内核和全局内存之间的数据传输）。此信息可在硬件仿真和系统中获得。
 
-   The System Estimate report (`system_estimate.xtxt`) is also generated. This is from the `--report` switch used when compiling using the `xocc` command.
+   系统估计报告 (`system_estimate.xtxt`)也会生成。这是使用`xocc`命令编译时使用的 `--report` 转换。
 
    ![error: missing image](./images/183_lab2_sw_emu_sysestimate.png)
 
-5. As you did earlier, in the SDx IDE, select **File** > **Open File** to locate the `sdaccel_timeline_trace.wdb` file, which opens the following report:
+5. 如前所述，在SDx IDE中，选择 **File** > **Open File** 以找到 `sdaccel_timeline_trace.wdb` 文件，该文件将打开以下报告：
 
    ![error: missing image](./images/183_lab2-sw_emu_timeline.png)
 
-## Run Hardware Emulation
+## 运行硬件仿真
 
-1. After Software Emulation completes, you can run Hardware Emulation. To do this without changing the makefile, run the following command:
+1. 软件仿真完成后，您可以运行硬件仿真。要在不更改makefile的情况下执行此操作，请运行以下命令：
 
    ```C
    make all REPORT=estimate TARGETS=hw_emu DEVICES=xilinx_u200_xdma_201830_1
    ```
 
-   When you define the `TARGETS` this way, it passes the value and overwrites the default that was set in the makefile.
+   当您以这种方式定义 `TARGETS` 时，它会传递该值并覆盖在makefile中设置的默认值。
+   
+   >**注意**: 硬件仿真比软件仿真需要更长的编译时间。
 
-   >**NOTE**: Hardware Emulation takes longer to compile than the Software Emulation.
-
-2. Re-run the compiled host application.
+2. 重新运行已编译的主应用程序。
 
    ```C
    make check TARGETS=hw_emu DEVICES=xilinx_u200_xdma_201830_1
    ```
 
-   >**NOTE**: The makefile sets the environment variable to `hw_emu`.
+   >**注意**: makefile将环境变量设置为 `hw_emu`。
    >
-   >You do not need to regenerate `emconfig.json`, because the device information has not changed. However, the emulation needs to be set for Hardware Emulation.
+   >您不需要重新生成 `emconfig.json`，因为设备信息没有更改。但是，需要为硬件仿真设置仿真。
 
-   The output looks like the Software Emulation output, as shown in the following figure.
+   输出类似于Software Emulation输出，如下图所示。
 
    ```C
    [sdaccel@localhost helloworld_c]$ make check TARGETS=hw_emu DEVICES=xilinx_u200_xdma_201830_1
@@ -287,52 +287,52 @@ profile = true
    INFO: Done writing sdaccel_profile_summary.html
    ```
 
-3. To view the profile summary and timeline trace, you must convert them for the SDx IDE to read and view the updated information. Use the following command:
+3. 要查看配置文件摘要和时间线跟踪，必须将它们转换为SDx IDE以读取和查看更新的信息。使用以下命令：
 
    ```C
    sdx_analyze profile sdaccel_profile_summary.csv
    sdx_analyze trace sdaccel_timeline_trace.csv
    ```
 
-   The Profile Summary is displayed, as shown in the following figure.
-
+   将显示“Profile Summary”，如下图所示。
+   
    ![error: missing image](./images/183_lab2-hw_emu_profile.png)
 
-## System Run
+## 系统运行
 
-1. To compile for a System Run, use the following command:
+1. 要编译系统运行，请使用以下命令：
 
    ```C
    make all TARGETS=hw DEVICES=xilinx_u200_xdma_201830_1
    ```
 
-   >**NOTE**: Building for System could take a long time, depending on computer resources.
+   >**注意**: 构建系统可能需要很长时间，具体取决于计算机资源。
 
-2. To run the design on U200 acceleration cards, install the board and deployment software, as described in _Getting Started with Alveo Data Center Accelerator Cards_ ([UG1301](https://www.xilinx.com/support/documentation/boards_and_kits/accelerator-cards/ug1301-getting-started-guide-alveo-accelerator-cards.pdf)).
+2. 要在U200加速卡上运行设计，请安装板和部署软件，如 _Getting Started with Alveo Data Center Accelerator Cards_ 所述([UG1301](https://www.xilinx.com/support/documentation/boards_and_kits/accelerator-cards/ug1301-getting-started-guide-alveo-accelerator-cards.pdf)).
 
-3. After the card is installed successfully and validated, use the following command to run the application:
+3. 成功安装并验证卡后，使用以下命令运行该应用程序：
 
    ```C
    make check TARGETS=hw DEVICES=xilinx_u200_xdma_201830_1
    ```
 
-4. After system run is finished, to convert the profile summary and timeline trace into files that SDx environment can read, use the following command:
+4. 系统运行完成后，要将配置文件摘要和时间线跟踪转换为SDx环境可以读取的文件，请使用以下命令：
 
    ```C
    sdx_analyze profile sdaccel_profile_summary.csv
    sdx_analyze trace sdaccel_timeline_trace.csv
    ```
 
-## Summary
+## 总结
 
-After completing this tutorial, you know how to do the following:
+完成本教程后，您将了解如何执行以下操作：
 
-* Set up the SDx environment to run all commands in a terminal.
-* Clone a GitHub repository.
-* Run the xcpp, xocc, emconfigutil, sdx_analyze profile, sdx_analyze trace commands to generate the application, binary container, and emulation model.
-* Write a makefile to compile an OpenCL™ kernel and host code.
-* View the generated files from emulation in a text editor or the SDx IDE.
-* Set up the environment and deploy the design to be used with the platform.
+* 设置SDx环境以运行终端中的所有命令。
+* 复制GitHub存储库。
+* 运行xcpp，xocc，emconfigutil，sdx_analyze profile，sdx_analyze trace命令以生成应用程序，二进制容器和仿真模型。
+* 编写一个makefile来编译OpenCL™内核和主机代码。
+* 在文本编辑器或SDx IDE中查看仿真生成的文件。
+* 设置环境并部署要与平台一起使用的设计。
 
 <hr/>
 <p align="center"><sup>Copyright&copy; 2019 Xilinx</sup></p>
