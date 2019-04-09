@@ -1,7 +1,7 @@
 <table>
  <tr>
-   <td align="center"><img src="https://www.xilinx.com/content/dam/xilinx/imgs/press/media-kits/corporate/xilinx-logo.png" width="30%"/><h1>2018.3 SDAccel™ Development Environment Tutorials</h1>
-   <a href="https://github.com/Xilinx/SDAccel-Tutorials/branches/all">See other versions</a>
+   <td align="center"><img src="https://www.xilinx.com/content/dam/xilinx/imgs/press/media-kits/corporate/xilinx-logo.png" width="30%"/><h1>2018.3 SDAccel™开发环境教程</h1>
+   <a href="https://github.com/Xilinx/SDAccel-Tutorials/branches/all">查看其他版本</a>
    </td>
  </tr>
  <tr>
@@ -10,11 +10,11 @@
  </tr>
 </table>
 
-## Introduction
+## 简介
 
-By default, in the SDAccel™ environment, the data transfer between the kernel and the DDR is achieved using a single DDR bank. In some applications, data movement is a performance bottleneck. In cases where the kernels need to move large amounts of data between global memory (DDR) and the FPGA, you can use multiple DDR banks. This enables the kernels to access the various memory banks simultaneously. As a result, the application performance increases.
+默认情况下，在SDAccel™环境中，内核和DDR之间的数据传输是使用单个DDR存储区实现的。在某些应用程序中，数据移动是性能瓶颈。如果内核需要在全局内存（DDR）和FPGA之间移动大量数据，则可以使用多个DDR bank。这使内核能够同时访问各种存储体。结果，应用程序性能提高。
 
-The System Port mapping option using the `--sp` switch allows the designer to map kernel ports to specific global memory banks, such as DDR or programmable logic RAM (PLRAM). This tutorial shows you how to map kernel ports to multiple DDR banks.
+使用`--sp`转换的系统端口映射选项允许设计人员将内核端口映射到特定的全局存储器组，例如DDR或可编程逻辑RAM（PLRAM）。本教程介绍如何将内核端口映射到多个DDR bank。
 
 ## Example Description
 
