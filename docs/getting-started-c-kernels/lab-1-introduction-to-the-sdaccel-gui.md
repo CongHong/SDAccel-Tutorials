@@ -86,173 +86,168 @@
 
    ![error: missing image](./images/183_helloworld_project.png)
 
-有关SDx IDE功能的更多信息，请参阅 _SDAccel Environment User Guide_ ([UG1023](https://www.xilinx.com/cgi-bin/docs/rdoc?v=2018.3;d=ug1023-sdaccel-user-guide.pdf)).
+有关SDx IDE功能的更多信息，请参阅 _SDAccel Environment User Guide_ ([UG1023](https://www.xilinx.com/cgi-bin/docs/rdoc?v=2018.3;d=ug1023-sdaccel-user-guide.pdf))。
 
-## Step 2: Run Software Emulation
+## Step 2: 运行软件仿真
 
-This step shows you how to run software emulation for a design by doing the following:
+此步骤通过执行以下操作向您显示如何为设计运行软件仿真：
 
-* Setting the Run Configuration settings
-* Opening reports
-* Launching Debug
+* 设置“运行配置”设置
+* 打开报告
+* 启动调试
 
-For details about reports and Debug, refer to the _SDAccel Environment User Guide_ ([UG1023](https://www.xilinx.com/cgi-bin/docs/rdoc?v=2018.3;d=ug1023-sdaccel-user-guide.pdf)).
+有关报告和调试的详细信息，请参阅 _SDAccel Environment User Guide_ ([UG1023](https://www.xilinx.com/cgi-bin/docs/rdoc?v=2018.3;d=ug1023-sdaccel-user-guide.pdf))。
 
-1. Go to Application Project Settings, and in the top-right corner, set **Active build configuration** to **Emulation-SW**.
+1. 转到应用程序项目设置，在右上角，将 **Active build configuration** 设置为 **Emulation-SW**。
 
    ![error: missing image](./images/183_project_settings_sw.png)
 
-   The GitHub example includes an accelerator for the design, so you do not need to add a hardware function.
+   GitHub示例包含设计加速器，因此您无需添加硬件功能。
 
-   >**NOTE**: To add a hardware functions to a design, click ![error: missing image](./images/qpg1517374817485.png). This analyzes the C/C++ code and determines functions that can be used for acceleration.
+   >**注意**: 要将硬件功能添加到设计中，请单击 ![error: missing image](./images/qpg1517374817485.png). 这将分析C / C ++代码并确定可用于加速的函数。
+2. 单击 ![[the Run Button]](./images/lvl1517357172451.png) (**Run**)。
 
-2. Click ![[the Run Button]](./images/lvl1517357172451.png) (**Run**).
+   这会在运行仿真之前构建项目。
 
-   This builds the project before running the emulation.
+   >**注意**: 构建和仿真过程可能需要几分钟或更长时间才能完成。在此期间，打开“运行配置”对话框，以查看如何添加特定命令行选项以自定义构建。
 
-   >**NOTE**: The build and emulation process can take a few minutes or longer to complete. During that, open the Run Configurations dialog box to see how you can add specific command line options to customize your build.
+3. 转到“运行”菜单，然后选择 **Run Configurations**。
 
-3. Go to the Run menu, and then select **Run Configurations**.
+   在Arguments选项卡下的Program Arguments字段中，您可以添加Xilinx OpenCL和trade;编译器（XOCC）命令行标志和开关。有关命令选项的说明，请参阅 _SDx Command and Utility Reference Guide_ ([UG1279](https://www.xilinx.com/cgi-bin/docs/rdoc?v=2018.3;d=ug1279-sdx-command-utility-reference-guide.pdf))。 在本教程中，设计无需任何命令行参数即可运行。
+   在“配置文件”选项卡中，有一个用于生成时间线跟踪报告的下拉菜单。您可以单击选项以查看生成的报告类型。此选项卡中还有一个用于 **Enable Profiling** 的复选框。
 
-   Under the Arguments tab, in the Program Arguments field, you can add Xilinx OpenCL&trade; Compiler (XOCC) command line flags and switches. For a description of command options, refer to the _SDx Command and Utility Reference Guide_ ([UG1279](https://www.xilinx.com/cgi-bin/docs/rdoc?v=2018.3;d=ug1279-sdx-command-utility-reference-guide.pdf)). In this tutorial, no command line arguments are needed for the design to function.
+4. 关闭窗口而不更改任何内容。
 
-   In the Profile tab, there is a drop-down menu for Generate timeline trace report. You can click the options to see what types of reports are generated. There is also a check box for **Enable Profiling** in this tab.
+   >**注意**: 如果在“运行配置”对话框中进行更改，请单击 **Run** 以重新运行当前模拟步骤并查看所做的更改。
+   控制台窗口现在显示 `TEST PASSED`.
 
-4. Close the window without changing anything.
-
-   >**NOTE**: If you make changes in the Run Configurations dialog box, click **Run** to re-run the current emulation step and see the changes you made.
-
-   The Console window now displays `TEST PASSED`.
-
-5. After the emulation run completes, you can review the Profile Summary and Application Timeline reports for details on further optimizations. In the Assistant window, double-click **Profile Summary**, as shown below.
+5. 仿真运行完成后，您可以查看“概要文件摘要”和“应用程序时间表”报告，以获取有关进一步优化的详细信息。在“助手”窗口中，双击 **Profile Summary**，如下所示。
 
    ![error: missing image](./images/183_assistant_reports_sw.png)
 
-   Here, you can view operations, execution time, bandwidth, and other useful data that you can use to optimize the design.
-
-   > **NOTE**: Your summary numbers might vary from the following figure.
+   在这里，您可以查看可用于优化设计的操作，执行时间，带宽和其他有用数据。
+   
+   > **注意**: 您的摘要编号可能与下图不同。
 
    ![error: missing image](./images/183_profile_summary_sw.png)
 
-6. To view the Application Timeline report, in the Assistant window, double-click **Application Timeline**.
+6. 要查看“应用程序时间线”报告，请在“助手”窗口中，双击 **Application Timeline**。
 
-   This shows a breakdown of the host code and the kernel code, and execution time for each. To zoom in to a specific area, click and drag the mouse to the right.
+   这显示了主机代码和内核代码的细分，以及每个代码的执行时间。要放大特定区域，请单击并向右拖动鼠标。
 
    ![error: missing image](./images/183_application_timeline.png)  
 
-   The Profile Summary and Application Timeline present data on how the host code and kernel communicate and process kernel information. You can use the Debug feature to go through host-kernel processing and identify issues.
+   概要摘要和应用程序时间线提供有关主机代码和内核如何通信和处理内核信息的数据。您可以使用“调试”功能来完成主机内核处理并识别问题。
+7. 在Project Explorer窗口中，要在编辑器中打开文件，请双击 **host.cpp** (位于 **Explorer > src` 目录**).
 
-7. In the Project Explorer window, to open the file in the editor, double-click **host.cpp** (located in the **Explorer > src` directory**).
-
-8. Before you can run in Debug, you must set a breakpoint. Setting breakpoints at key points in the execution helps to identify problems. To pause the host code prior to kernel debug, right-click <`line 89`> in the blue area (see figure below) on the (`OCL_CHECK(err, err = q.enqueueMigrateMemObjects({buffer_in1, buffer_in2},0/* 0 means from host*/));`), and select **Toggle Breakpoint**.
+8. 在可以在Debug中运行之前，必须设置断点。在执行的关键点设置断点有助于识别问题。要在内核调试之前暂停主机代码，请在(`OCL_CHECK(err, err = q.enqueueMigrateMemObjects({buffer_in1, buffer_in2},0/* 0 means from host*/));`)上的蓝色区域（见下图）中右键单击 <`line 89`> 并选择 **Toggle Breakpoint**。
 
    ![error: missing image](./images/debug_breakpoint_hw.PNG)
 
-9. To run Debug, click ![missing image: the Debug icon](./images/cwo1517357172495.png).
+9. 运行Debug，请单击 ![missing image: the Debug icon](./images/cwo1517357172495.png)。
 
-   A dialog box opens and displays options to switch perspectives.
+   将打开一个对话框，显示切换透视图的选项。
 
-10. Click **Yes**.
+10. 单击 **Yes**.
 
-    By default, the debugger inserts an automatic breakpoint at the first line of `main`. On the Debugger tab of the Runs Configuration dialog, there is an option to stop on the `main` function, which is enabled by default (as shown below). This is helpful in case of a problematic function in need of more thorough debugging.
+    默认情况下，调试器在 `main`的第一行插入一个自动断点。在“运行配置”对话框的“调试器”选项卡上，有一个选项可以在 `main` 函数上停止，该函数默认启用（如下所示）。这对于需要更彻底调试的有问题的功能是有帮助的。
 
-11. _(Optional)_ Using Eclipse debugging, you can examine the host and kernel code in more detail. All the controls for step-by-step debugging are in the Run menu or on the main toolbar menu.
+11. _(Optional)_ Using Eclipse 调试，您可以更详细地检查主机和内核代码。逐步调试的所有控件都在“运行”菜单或主工具栏菜单中。
 
-12. Resume to the next breakpoint:
-    1. Press **F8**.
-    2. Select **Run**>**Resume**.
+12. 恢复到下一个断点：
+    1. 按 **F8**.
+    2. 选择 **Run**>**Resume**.
 
        ![error: missing image](./images/debug_configuration_hw.PNG)
 
-13. After resuming debugging, the SDx tool launches another gdb instance for the kernel code, which also has a breakpoint at the beginning of the function.
+13. 在恢复调试之后，SDx工具为内核代码启动另一个gdb实例，该实例在函数开头也有一个断点。
 
-    You can use this breakpoint to perform detailed analysis of the kernel and how the data looks being read into the function and written out to memory. After the kernel execution is done in gdb, that instance is terminated, and you return to the main debugging thread.
+    您可以使用此断点来执行内核的详细分析，以及如何将数据读入函数并写入内存。在gdb中完成内核执行后，该实例终止，然后返回主调试线程。
 
-14. To continue, press **F8**.
+14. 继续，请按 **F8**。
 
-    >**NOTE**  The console view still shows the kernel debug outputs. Click ![error: missing image](./images/gqm1517357172417.png) to go back to the vadd.exe console and see the output from the host code.
+    >**注意**  控制台视图仍显示内核调试输出。单击 ![error: missing image](./images/gqm1517357172417.png) 以返回到vadd.exe控制台并查看主机代码的输出。
 
-15. To close the Debug perspective, do one of the following:
+15. 要关闭Debug透视图，请执行以下操作之一：
 
-    * In the upper-right corner of the window showing ![error: missing image](./images/cwo1517357172495.png) (Debug), right-click, and select **Close**.
-    * Click ![error: missing image](./images/sdx_perspective_icon.PNG) (SDx) to switch to the standard SDx perspective.
+    * 在窗口的右上角显示 ![error: missing image](./images/cwo1517357172495.png) (Debug), 右击, 然后选择 **Close**。
+    * 单击 ![error: missing image](./images/sdx_perspective_icon.PNG) (SDx) 切换到标准SDx透视图。
 
-16. After you are in the main SDx Perspective, close all tabs in the center Project Editor window _except_ the Application Project Settings window.
+16. 进入主SDx透视图后，关闭“项目编辑器”窗口中的所有选项卡，“应用程序项目设置”窗口除外。
 
-## Step 4: Run Hardware Emulation
+## Step 4: 运行硬件仿真
 
-This step covers running the Hardware Emulation feature, as well as looking at the basics of profiling and reports.
+此步骤包括运行硬件仿真功能，以及查看分析和报告的基础知识。
 
-The main difference between Emulation-SW and Emulation-HW is that when you emulate hardware, it builds a design that is closer to what is seen on the platform, synthesizing RTL for the kernel code. This means that data related to bandwidth, throughput, and execution time are more accurate. However, this causes the design to take longer to compile.
+Emulation-SW和Emulation-HW之间的主要区别在于，当模拟硬件时，Emulation-HW会构建一个更接近平台上所见的设计，为内核代码合成RTL。这意味着与带宽，吞吐量和执行时间相关的数据更准确。但是，这会导致设计编译时间更长。
 
-1. To run Hardware Emulation, go to SDx Application Settings, and ensure that **Active build configuration** is set to Emulation-HW, and then click **Run**. This takes some time to complete.
+1. 要运行硬件仿真，请转到SDx应用程序设置，并确保 **Active build configuration** 设置为Emulation-HW，然后单击 **Run**。这需要一些时间来完成。
 
-2. In the Assistant tab, under the Emulation-HW configuration, open the System Estimate report. This text report provides information related to kernel information, timing about the design, clock cycles, and area used in the device.
+2. 在“Assistant”选项卡的Emulation-HW配置下，打开“System Estimate report”报告。此文本报告提供有关内核信息，设计时序，时钟周期和设备中使用的区域的信息。
 
    ![error: missing image](./images/183_system_estimate_hw.png)
 
-3. In the Reports tab, double click to open the Profile Summary report. This report provides detailed information related to kernel operation, data transfers, and OpenCL API calls, as well as profiling information related to the resource usage, and data transfer to/from the kernel/host.
+3. 在“Reports”选项卡中，双击以打开“Profile Summary”报告。此报告提供与内核操作，数据传输和OpenCL API调用相关的详细信息，以及与资源使用情况相关的分析信息，以及与内核/主机之间的数据传输。
 
-   >**NOTE**: The simulation models used in Hardware Emulation are approximate. The profile numbers shown are just an estimate and might vary from results obtained in real hardware.
+   >**注意**: 硬件仿真中使用的仿真模型是近似的。显示的配置文件编号只是一个估计值，可能与实际硬件中获得的结果不同。
 
    ![error: missing image](./images/183_profile_summary_report_hw.png)
 
-   Next to the Console tab, the Guidance tab is displayed. This is where unmet checks provide some information on how to optimize the kernel.
+   在“Console”选项卡旁边，将显示“Guidance”选项卡。这是未完成检查提供有关如何优化内核的一些信息的地方。
 
    ![error: missing image](./images/183_guidance_view_hw.png)
 
-   >**NOTE**: To see other performance optimization techniques and methodologies, refer to the _SDAccel Profiling and Optimization Guide_ ([UG1207](https://www.xilinx.com/cgi-bin/docs/rdoc?v=2018.3;d=ug1207-sdaccel-optimization-guide.pdf)).
+   >**注意**: 要查看其他性能优化技术和方法，请参阅 _SDAccel Profiling and Optimization Guide_ ([UG1207](https://www.xilinx.com/cgi-bin/docs/rdoc?v=2018.3;d=ug1207-sdaccel-optimization-guide.pdf)).
 
-4. In the Reports tab, double-click to open the Application Timeline report. This report shows the estimated time it takes for the host and kernel to complete the task and provides finer grained information on where bottlenecks can be. Adding a marker, zooming, and expanding signals can help in identifying bottlenecks.
+4. 在“Reports”选项卡中，双击以打开“Application Timeline ”报告。此报告显示主机和内核完成任务所需的估计时间，并提供有关bottlenecks可能的更详细的信息。添加标记，缩放和扩展信号有助于识别bottlenecks。
 
    ![error: missing image](./images/183_timeline_hw.png)  
 
-5. To open the HLS Report, expand the Emulation-HW tab and then expand the relevant kernel tab.
+5.要打开HLS报告，请展开Emulation-HW选项卡，然后展开相关的内核选项卡。
 
-   This report provides detailed information provided by Vivado® HLS on the kernel transformation and synthesis. The tabs at the bottom of the report provide more information on where most of the time is spent in the kernel and other performance related data. Performance data including latency and clock period are also shown in this report.
+   该报告提供了Vivado®HLS在内核转换和综合方面提供的详细信息。报告底部的选项卡提供了有关内核和其他性能相关数据花费大部分时间的更多信息。本报告还显示了包括延迟和时钟周期在内的性能数据。
 
    ![error: missing image](./images/183_hls_hw.png)  
 
-## Step 5: Use the Makefile Flow
+## Step 5: 使用Makefile流程
 
-This step explains the basics of the makefile flow and how the SDx™ IDE uses it. The advantages of using this flow include:
+此步骤说明了makefile流程的基础知识以及SDx™IDE如何使用它。使用此流程的优点包括：
 
-* Easy automation into any system
-* Faster turnaround time on small design changes
+* 易于移植到任何系统
+* 小型设计变更的周转时间更短
 
-1. In the Project Explorer, navigate to the Emulation-SW directory, and then look for the makefile file.
-2. Double-click the file to open it in the editor. The SDx IDE creates this makefile and uses it for building and running emulations. Alternatively, you can navigate to the `Emulation-HW` directory and look for the makefile file.
+1. 在Project Explorer中，导航到Emulation-SW目录，然后查找makefile文件。
+2. 双击该文件以在编辑器中将其打开。 SDx IDE创建此makefile并将其用于构建和运行仿真。或者，您可以导航到 `Emulation-HW` 目录并查找makefile文件。
 
-   Notice that there is a unique makefile for each build. In the opened makefile in the editor window, look at line 21. Note that it specifies a target if either `hw_emu` or `sw_emu`.
+   请注意，每个构建都有一个唯一的makefile。在编辑器窗口中打开的makefile中，查看第21行。注意，如果是 `hw_emu` 或 `sw_emu`，它指定一个目标。
 
-   >**TIP**: You can also use the makefile produced by the SDx IDE to build the project outside of the GUI.
+   >**提示**: 您还可以使用SDx IDE生成的makefile在GUI之外构建项目。
 
-3. Open a new terminal session and navigate to the workspace.
+3. 打开新的终端会话并找到工作区。
 
-4. Navigate to the Emulation-SW directory and enter `make incremental`.
+4. 找到Emulation-SW目录并输入 `make incremental`。
 
-   The process produces a typical SDx log output.
-
-   >**NOTE**: If no changes are made to the host or kernel code, this will do nothing because the compilation is already completed. It might display a message such as:  
+   该过程产生典型的SDx日志输出。
+   
+   >**注意**: 如果未对主机或内核代码进行任何更改，则无效，因为编译已完成。它可能会显示如下消息：
    >
    >_make: Nothing to be done for `incremental`._
 
-[Lab 2: Introduction to the SDAccel Makefile](./lab-2-introduction-to-the-sdaccel-makefile.md) goes into more detail on how to use the makefile and command line flow.
+[Lab 2: Introduction to the SDAccel Makefile](./lab-2-introduction-to-the-sdaccel-makefile.md) 详细介绍了如何使用makefile和命令行流程。
+## 总结
 
-## Summary
+完成本教程后，您将了解如何执行以下操作：
 
-After completing this tutorial, you know how to do the following:
-
-* Create an SDAccel environment project from a GitHub example design.
-* Create a binary container and accelerator for the design.
-* Run Software Emulation and use the Debug environment on host and kernel code.
-* Run Hardware Emulation and use the reports to understand possible optimization.
-* Understand the differences between Software and Hardware Emulation reports.
-* Read the project makefile and run the makefile command line.
+* 从GitHub示例设计创建SDAccel环境项目。
+* 为设计创建二进制容器和加速器。
+* 运行Software Emulation并在主机和内核代码上使用Debug环境。
+* 运行硬件仿真并使用报告来了解可能的优化。
+* 了解软件和硬件仿真报告之间的差异。
+* 读取项目makefile并运行makefile命令行。
 
 ## Lab 2: Introduction to the SDAccel Makefile
 
-[Lab 2: Introduction to the SDAccel Makefile](./lab-2-introduction-to-the-sdaccel-makefile.md) goes into more detail on how to use the makefile and command line flow.
+[Lab 2: Introduction to the SDAccel Makefile](./lab-2-introduction-to-the-sdaccel-makefile.md) 详细介绍了如何使用makefile和命令行流程。
 
 <hr/>
 <p align="center"><sup>Copyright&copy; 2019 Xilinx</sup></p>
