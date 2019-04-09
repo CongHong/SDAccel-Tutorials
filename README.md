@@ -4,8 +4,8 @@ Read this page in other languages:<a href="/docs-jp/README.md">中文</a>
 
 <table width="100%">
   <tr width="100%">
-    <td align="center"><img src="https://www.xilinx.com/content/dam/xilinx/imgs/press/media-kits/corporate/xilinx-logo.png" width="30%"/><h1>2018.3 SDAccel™ Development Environment Tutorials</h1>
-    <a href="https://github.com/Xilinx/SDAccel-Tutorials/branches/all">See other versions</a>
+    <td align="center"><img src="https://www.xilinx.com/content/dam/xilinx/imgs/press/media-kits/corporate/xilinx-logo.png" width="30%"/><h1>2018.3 SDAccel™开发环境教程</h1>
+    <a href="https://github.com/Xilinx/SDAccel-Tutorials/branches/all">查看其他版本</a>
     </td>
  </tr>
  </table>
