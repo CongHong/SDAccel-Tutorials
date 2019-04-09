@@ -33,22 +33,22 @@ $ sdx
 ### 使用“Project Creation”向导创建新项目
 
 1. 从File / New菜单中选择 **SDx Application Project** 。
-2. Specify the following project name: `mixed_c_rtl`
-3. Click **Next**.
-4. In the Platform dialog box, select the `xilinx_u200_xdma_201830_1` platform, and then click **Next**.
-5. Finally, in the Templates dialog, select **Empty Application**, and then click **Finish**.
+2. 指定以下项目名称： `mixed_c_rtl`。
+3. 单击 **Next**.
+4. 在“Platform”对话框中，选择 `xilinx_u200_xdma_201830_1` 平台，然后单击 **Next**。
+5. 最后，在“Templates”对话框中，选择 **Empty Application**, 然后单击 **Finish**。
 
-### Add Source Files to the prj_c_rtl Project
+### 将源文件添加到prj_c_rtl项目
 
-1. In the SDAccel Project Explorer pane, click **Import Sources**, which is circled in red in the following image:  
+1. 在“SDAccel Project Explorer”窗格中，单击 **Import Sources**, 在下图中以红色圈出：  
 ![Missing Image:ImportSources](images/import_sources_icon.PNG)  
-2. Browse to `mixing-c-rtl-kernels/reference-files` and click **OK**.
-3. Select all the files in the directory, and then click **Finish**. This will import the host and C++ kernel source files from the `reference-files` directory to the `mixing_c_rtl` project’s `src` directory.
+2. 浏览到 `mixing-c-rtl-kernels/reference-files` 然后单击 **OK**。
+3. 选择目录中的所有文件，然后单击 **Finish**。这会将主机和C ++内核源文件从 `reference-files` 目录导入到 `mixing_c_rtl` 项目的 `src` 目录。
 
-The kernel (`krnl_vadd.cpp`) adds two input vectors and generates the output result.
-The host code (`host.cpp`) sets up the platform and defines global memory buffer and connections to the kernel. Four important set of OpenCL API calls in the host code are described below. You can see these calls by opening the `host.cpp` file.
+内核 (`krnl_vadd.cpp`) 添加两个输入向量并生成输出结果。
+主机代码 (`host.cpp`) 设置平台并定义全局内存缓冲区和内核连接。下面描述了主机代码中的四组重要的OpenCL API调用。您可以通过打开 `host.cpp` 文件来查看这些调用。
 
-The first set of code, on lines 135-138 of the `host.cpp` file, creates the program to execute. It uses the binary container which contains just the C++ based kernel.
+第一组代码在 `host.cpp` 文件的第135-138行创建了要执行的程序。它使用仅包含基于C ++的内核的二进制容器。
 
 ```
 cl::Program::Binaries bins;
@@ -57,13 +57,13 @@ devices.resize(1);
 cl::Program program(context, devices, bins);
 ```
 
-The second, on line 142, gets the C++ `krnl_vadd` kernel object from the program, and assigns the name `krnl_vector_add`. It allows the kernel to be used by the host.
+第二行，在第142行，从程序中获取C ++ `krnl_vadd` 内核对象，并指定名称 `krnl_vector_add`。它允许主机使用内核。
 
 ```
 cl::Kernel krnl_vector_add(program,"krnl_vadd");
 ```
 
-The third set of code, on lines 162-165, assigns the `krnl_vector_add` kernel arguments to the buffers:
+第162到65行的第三组代码将 `krnl_vector_add` 内核参数赋给缓冲区：
 
 ```
 krnl_vector_add.setArg(0,buffer_a);
@@ -73,7 +73,8 @@ krnl_vector_add.setArg(3,DATA_SIZE);
 ```
 
 
-The argument numbers 0, 1, 2, and 3 match the argument order in the `krnl_vadd` definition found in `krnl_vadd.cpp`, as shown below:
+参数数字0,1,2和3匹配`krnl_vadd.cpp`中的`krnl_vadd`定义中的参数顺序，如下所示：
+
 ```
 void krnl_vadd(
                 int* a,
