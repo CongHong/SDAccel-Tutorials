@@ -131,7 +131,7 @@
 
    ![error: missing image](./images/183_profile_summary_sw.png)
 
-6. 要查看“应用程序时间线”报告，请在“助手”窗口中，双击 **Application Timeline**。
+6. 要查看“Application Timeline”报告，请在“Assistant”窗口中，双击 **Application Timeline**。
 
    这显示了主机代码和内核代码的细分，以及每个代码的执行时间。要放大特定区域，请单击并向右拖动鼠标。
 
