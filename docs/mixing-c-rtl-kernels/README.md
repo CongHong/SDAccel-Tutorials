@@ -116,7 +116,7 @@ q.enqueueTask(krnl_vector_add);
 >**注意**: 您将使用软件模拟来验证主机代码和内核的功能。软件仿真运行时非常快，因为主机代码和内核代码都是在开发机器的x86处理器上编译和运行的。
 3. 运行模拟，单击运行图标： 
 ![Missing Image:RunIcon](images/run_icon.PNG)  
-当应用程序成功完成时，您将在控制台窗口中看到'TEST WITH ONE KERNEL PASSED'。
+当应用程序成功完成时，您将在控制台窗口中看到`TEST WITH ONE KERNEL PASSED`。
 
 ### Application Timeline review
 
