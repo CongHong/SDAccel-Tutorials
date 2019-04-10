@@ -368,7 +368,7 @@ Vivado工具使用`package_xo` 命令生成 `.xo` 文件，如下所示。
 
 2.执行内核
 
-3. FPGA器件的后处理和发布
+3.FPGA器件的后处理和发布
 
 以下是一些重要的OpenCL API调用，允许主机应用程序与FPGA交互：
 
@@ -424,17 +424,17 @@ clEnqueueReadBuffer(command_queue, dev_mem_ptr, CL_TRUE, 0, sizeof(int)*number_o
 
 # 总结
 
- 1.您使用SDx GUI中的RTL内核向导来指定新RTL内核的名称和接口（基于现有的RTL IP）。
+1.您使用SDx GUI中的RTL内核向导来指定新RTL内核的名称和接口（基于现有的RTL IP）。
     -  RTL内核向导根据您的规范创建了一个XML模板，自动生成模板IP (`Vadd A+1`)的RTL文件，然后启动Vivado Design Suite。
     
-2. 在Vivado Design Suite中，您删除了模板RTL文件并添加到您自己的RTL IP文件中。
+2.在Vivado Design Suite中，您删除了模板RTL文件并添加到您自己的RTL IP文件中。
 
-3. 您使用测试平台模拟IP以合并AXI验证IP（AXI VIP）。  
+3.您使用测试平台模拟IP以合并AXI验证IP（AXI VIP）。  
     >**注意**: 使用自己的RTL IP时，必须创建此测试平台。
 
-4. 您将RTL IP项目打包到SDAccel开发环境所需的已编译的 `.xo` 文件中。
+4.您将RTL IP项目打包到SDAccel开发环境所需的已编译的 `.xo` 文件中。
 
-5. 您将RTL内核添加到主机应用程序并构建了硬件仿真配置。  
+5.您将RTL内核添加到主机应用程序并构建了硬件仿真配置。  
    - 在SDAccel开发环境中，使用 `.xo` 文件创建了一个二进制容器，并编译了一个 `xclbin` 文件。
 
 <hr/>
