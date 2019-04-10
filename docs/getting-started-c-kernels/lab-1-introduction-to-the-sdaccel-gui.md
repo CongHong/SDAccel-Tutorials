@@ -98,7 +98,7 @@
 
 有关报告和调试的详细信息，请参阅 _SDAccel Environment User Guide_ ([UG1023](https://www.xilinx.com/cgi-bin/docs/rdoc?v=2018.3;d=ug1023-sdaccel-user-guide.pdf))。
 
-1. 转到应用程序项目设置，在右上角，将 **Active build configuration** 设置为 **Emulation-SW**。
+1. 转到"SDx Application Project Settings"，在右上角，将 **Active build configuration** 设置为 **Emulation-SW**。
 
    ![error: missing image](./images/183_project_settings_sw.png)
 
@@ -109,9 +109,9 @@
 
    这会在运行仿真之前构建项目。
 
-   >**注意**: 构建和仿真过程可能需要几分钟或更长时间才能完成。在此期间，打开“运行配置”对话框，以查看如何添加特定命令行选项以自定义构建。
+   >**注意**: 构建和仿真过程可能需要几分钟或更长时间才能完成。在此期间，打开“ Run Configurations”对话框，以查看如何添加特定命令行选项以自定义构建。
 
-3. 转到“运行”菜单，然后选择 **Run Configurations**。
+3. 转到“Run”菜单，然后选择 **Run Configurations**。
 
    在Arguments选项卡下的Program Arguments字段中，您可以添加Xilinx OpenCL和trade;编译器（XOCC）命令行标志和开关。有关命令选项的说明，请参阅 _SDx Command and Utility Reference Guide_ ([UG1279](https://www.xilinx.com/cgi-bin/docs/rdoc?v=2018.3;d=ug1279-sdx-command-utility-reference-guide.pdf))。 在本教程中，设计无需任何命令行参数即可运行。
    在“配置文件”选项卡中，有一个用于生成时间线跟踪报告的下拉菜单。您可以单击选项以查看生成的报告类型。此选项卡中还有一个用于 **Enable Profiling** 的复选框。
