@@ -63,7 +63,7 @@ cl::Program program(context, devices, bins);
 cl::Kernel krnl_vector_add(program,"krnl_vadd");
 ```
 
-第162到65行的第三组代码将 `krnl_vector_add` 内核参数赋给缓冲区：
+第162到165行的第三组代码将 `krnl_vector_add` 内核参数赋给缓冲区：
 
 ```
 krnl_vector_add.setArg(0,buffer_a);
