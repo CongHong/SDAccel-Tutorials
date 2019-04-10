@@ -113,15 +113,15 @@
 
 3. 转到“Run”菜单，然后选择 **Run Configurations**。
 
-   在Arguments选项卡下的Program Arguments字段中，您可以添加Xilinx OpenCL和trade;编译器（XOCC）命令行标志和开关。有关命令选项的说明，请参阅 _SDx Command and Utility Reference Guide_ ([UG1279](https://www.xilinx.com/cgi-bin/docs/rdoc?v=2018.3;d=ug1279-sdx-command-utility-reference-guide.pdf))。 在本教程中，设计无需任何命令行参数即可运行。
-   在“配置文件”选项卡中，有一个用于生成时间线跟踪报告的下拉菜单。您可以单击选项以查看生成的报告类型。此选项卡中还有一个用于 **Enable Profiling** 的复选框。
+   在Arguments选项卡下的Program Arguments字段中，您可以添加Xilinx OpenCL™ Compiler (XOCC)命令行标志和开关。有关命令选项的说明，请参阅 _SDx Command and Utility Reference Guide_ ([UG1279](https://www.xilinx.com/cgi-bin/docs/rdoc?v=2018.3;d=ug1279-sdx-command-utility-reference-guide.pdf))。 在本教程中，设计无需任何命令行参数即可运行。
+   在“Profile”选项卡中，有一个用于生成时间线跟踪报告的下拉菜单。您可以单击选项以查看生成的报告类型。此选项卡中还有一个用于 **Enable Profiling** 的复选框。
 
 4. 关闭窗口而不更改任何内容。
 
-   >**注意**: 如果在“运行配置”对话框中进行更改，请单击 **Run** 以重新运行当前模拟步骤并查看所做的更改。
+   >**注意**: 如果在“Run Configurations”对话框中进行更改，请单击 **Run** 以重新运行当前模拟步骤并查看所做的更改。
    控制台窗口现在显示 `TEST PASSED`.
 
-5. 仿真运行完成后，您可以查看“概要文件摘要”和“应用程序时间表”报告，以获取有关进一步优化的详细信息。在“助手”窗口中，双击 **Profile Summary**，如下所示。
+5. 仿真运行完成后，您可以查看“Profile Summary”和“Application Timeline”报告，以获取有关进一步优化的详细信息。在“Assistant”窗口中，双击 **Profile Summary**，如下所示。
 
    ![error: missing image](./images/183_assistant_reports_sw.png)
 
