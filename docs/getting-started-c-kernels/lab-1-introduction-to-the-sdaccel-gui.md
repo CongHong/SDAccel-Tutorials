@@ -150,9 +150,9 @@
 
 10. 单击 **Yes**.
 
-    默认情况下，调试器在 `main`的第一行插入一个自动断点。在“运行配置”对话框的“调试器”选项卡上，有一个选项可以在 `main` 函数上停止，该函数默认启用（如下所示）。这对于需要更彻底调试的有问题的功能是有帮助的。
+    默认情况下，调试器在 `main`的第一行插入一个自动断点。在“Runs Configuration”对话框的“Debugger”选项卡上，有一个选项可以在 `main` 函数上停止，该函数默认启用（如下所示）。这对于需要更彻底调试的有问题的功能是有帮助的。
 
-11. _(Optional)_ Using Eclipse 调试，您可以更详细地检查主机和内核代码。逐步调试的所有控件都在“运行”菜单或主工具栏菜单中。
+11. _(Optional)_ Using Eclipse 调试，您可以更详细地检查主机和内核代码。逐步调试的所有控件都在“Run”菜单或主工具栏菜单中。
 
 12. 恢复到下一个断点：
     1. 按 **F8**.
@@ -173,7 +173,7 @@
     * 在窗口的右上角显示 ![error: missing image](./images/cwo1517357172495.png) (Debug), 右击, 然后选择 **Close**。
     * 单击 ![error: missing image](./images/sdx_perspective_icon.PNG) (SDx) 切换到标准SDx透视图。
 
-16. 进入主SDx透视图后，关闭“项目编辑器”窗口中的所有选项卡，“应用程序项目设置”窗口除外。
+16. 进入"SDx Perspective"后，关闭“Project Editor”窗口中的所有选项卡，“Application Project Settings window”窗口除外。
 
 ## Step 4: 运行硬件仿真
 
