@@ -365,7 +365,9 @@ Vivado工具使用`package_xo` 命令生成 `.xo` 文件，如下所示。
 主代码的结构分为三个部分：
 
 1.设置OpenCL运行时环境
+
 2.执行内核
+
 3. FPGA器件的后处理和发布
 
 以下是一些重要的OpenCL API调用，允许主机应用程序与FPGA交互：
@@ -415,16 +417,16 @@ clEnqueueReadBuffer(command_queue, dev_mem_ptr, CL_TRUE, 0, sizeof(int)*number_o
 
 ### 可选：在硬件平台上构建和运行系统
 
-1. 在SDx应用程序项目设置中，将 **Active build configuration** 更改为 **System**。  
+1. 在"SDx Application Project Settings"中，将 **Active build configuration** 更改为 **System**。  
 在系统配置中，内核代码在FPGA器件上实现，从而产生将在所选平台卡上运行的二进制代码。 
 
 2. 如果您有可用的硬件平台，请构建并运行系统，然后验证结果。
 
 # 总结
 
-1.您使用SDx GUI中的RTL内核向导来指定新RTL内核的名称和接口（基于现有的RTL IP）。
+ 1.您使用SDx GUI中的RTL内核向导来指定新RTL内核的名称和接口（基于现有的RTL IP）。
     -  RTL内核向导根据您的规范创建了一个XML模板，自动生成模板IP (`Vadd A+1`)的RTL文件，然后启动Vivado Design Suite。
-
+    
 2. 在Vivado Design Suite中，您删除了模板RTL文件并添加到您自己的RTL IP文件中。
 
 3. 您使用测试平台模拟IP以合并AXI验证IP（AXI VIP）。  
