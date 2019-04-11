@@ -24,7 +24,7 @@ SDAccel™环境提供两种控制Vivado流的方法：
 
 ## 使用`--xp` XOCC编译器转换
 此方案将描述如何：
- * 在RTL合成期间完全展平层次结构（即，指定_FLATTEN_HIERARCHY = full_）。
+ * 在RTL合成期间完全展平层次结构（即，指定 _FLATTEN_HIERARCHY = full_ ）。
  * 在路由步骤中使用NoTimingRelaxation指令： _DIRECTIVE=NoTimingRelaxation_
 
 要使用`--xp` XOCC编译器转换将这些选项传递给Vivado流，必须使用以下语法（每个选项需要使用单独的`--xp`开关）：
