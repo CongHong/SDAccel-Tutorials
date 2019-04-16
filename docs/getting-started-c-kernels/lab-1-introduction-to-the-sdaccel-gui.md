@@ -76,7 +76,7 @@
 
    在“Templates”模板窗口中填充了SDAccel GitHub示例。 
 
-10. 在 **“Find”**中, 输入 `hello`, 然后从Host Examples中找到Hello World（HLS C / C ++ Kernel）。
+10. 在 **Find**中, 输入 `hello`, 然后从Host Examples中找到Hello World（HLS C / C ++ Kernel）。
 
 11. 单击 **Finish**。
 
